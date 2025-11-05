@@ -1,1 +1,1 @@
-DevTemple by Figsh 
+G by Figsh 
