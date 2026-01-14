@@ -38,7 +38,7 @@ body{
   
   width: 100%;
   color: var(--text-light);
-  font-size: auto;
+  font-family: sans-serif;
 }
 .top-menu{
   background: linear-gradient(rgba(20,130,200,0.2),rgba(100,100,200,0.2));
