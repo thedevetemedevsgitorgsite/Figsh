@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  
+  <!-- Canonical -->
+  <link rel="canonical" href="https://figsh.devtem.org/extensions">
+  <link rel="icon" href="/fscss.png">
+  <!-- Title -->
+  <title>FSCSS Extensions Hub — Community Modules & Starter Kits | Modern CSS Preprocessor</title>
+  
+  <!-- Primary SEO -->
+  <meta name="description" content="Discover the FSCSS extension ecosystem: camelCase, snake_case mappings, counterx animated counters, circle-progress component. Import community modules as .fscss files.">
+  <meta name="keywords" content="FSCSS extensions, camelCase CSS, snake_case CSS, counterx.fscss, circle-progress.fscss, FSCSS plugins, CSS preprocessor modules">
+  <meta name="author" content="Figsh">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#111827">
+  <meta name="language" content="en-US">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="FSCSS Extensions Hub — Community Modules & Starter Kits">
+  <meta property="og:description" content="Import ready-to-use FSCSS extensions: JavaScript-style camelCase, Pythonic snake_case, animated counters, and circular progress components. Build faster with community modules.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://figsh.devtem.org/extensions">
+  <meta property="og:image" content="https://fscss.devtem.org/fscss.png">
+  <meta property="og:image:alt" content="FSCSS Extensions Showcase">
+  <meta property="og:site_name" content="FSCSS">
+  <meta property="og:locale" content="en_US">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FSCSS Extensions Hub — Community Modules">
+  <meta name="twitter:description" content="Plug-and-play FSCSS extensions: camelCase, snake_case, counterx, circle-progress. No build tools, just import and use.">
+  <meta name="twitter:image" content="https://fscss.devtem.org/fscss.png">
+  <meta name="twitter:site" content="@fscss_ttr">
+  <meta name="twitter:creator" content="@MrFigsh">
+  
+  <!-- Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Serif+Text:ital@0;1&family=JetBrains+Mono:wght@400;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="/assets/styles/general.css">
+  
+  <!-- Structured Data: CollectionPage -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "FSCSS Extensions Hub",
+      "description": "Official and community extensions for FSCSS including naming conventions, animated counters, and UI components.",
+      "url": "https://figsh.devtem.org/extensions"
+    }
+  </script>
+</head>
+<body>
+
+<div class="container">
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <span class="masthead-label">CSS Tooling</span>
+    <a href="/projects"><span class="masthead-series">FSCSS Series</span></a>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">Plugin Ecosystem</p>
+    <h1>FSCSS Extensions Hub: <em>Community Modules & Starter Kits</em></h1>
+    <div class="hero-meta">
+      <span>Extensions</span>
+      <span class="dot">·</span>
+      <span class="tag">#FSCSS</span>
+      <span class="tag">#plugins</span>
+      <span class="tag">#opensource</span>
+      <span class="tag">#modules</span>
+    </div>
+  </section>
+
+  <!-- OPENING VIGNETTE -->
+  <div class="vignette">
+    <p style="font-size:1.05rem; line-height:1.8;">FSCSS extensions are plain <code>.fscss</code> files that add new syntax, utilities, or entire UI components. Import them once, use them everywhere — no build step, no JavaScript overhead.</p>
+    <p style="margin-top: 1rem; font-size:1.05rem; line-height:1.8;">From naming conventions to animated counters and circular progress indicators, the ecosystem grows with every module. Below you'll find some of the most popular extensions to supercharge your styling workflow.</p>
+  </div>
+
+  <!-- SECTION: core naming extensions -->
+  <section class="section">
+    <p class="section-label">Naming Systems</p>
+    <h2>camelCase & snake_case Mappings</h2>
+    <div class="prose">
+      <p>Stop writing hyphenated CSS properties. These lightweight extensions map modern naming conventions to standard CSS — making your stylesheets feel like JavaScript objects or Python modules.</p>
+    </div>
+    <div class="compare" style="margin-top: 1.5rem;">
+      <div class="compare-col">
+        <p class="compare-label">camelCase Utilities</p>
+        <div class="code-block" data-lang="fscss">
+          <code><span class="fn">@import</span>((*) <span class="fn">from</span> camelCase)<br>
+<span class="selector">.panel</span> { <span class="property">backgroundColor</span>: #111; <span class="property">borderRadius</span>: 12px; }</code>
+        </div>
+        <div class="prose" style="margin-top: 0.75rem;">
+          <p>Write JavaScript-style property names: <code>backgroundColor</code>, <code>fontWeight</code>, <code>marginTop</code>. The extension maps each token to its CSS equivalent behind the scenes.</p>
+        </div>
+      </div>
+      <div class="compare-col">
+        <p class="compare-label new">snake_case Mappings</p>
+        <div class="code-block" data-lang="fscss">
+          <code><span class="fn">@import</span>((*) <span class="fn">from</span> snake_case)<br>
+<span class="selector">.form</span> { <span class="property">border_radius</span>: 12px; <span class="property">background_color</span>: #f5f5f5; }</code>
+        </div>
+        <div class="prose" style="margin-top: 0.75rem;">
+          <p>Pythonic naming: <code>border_radius</code>, <code>font_weight</code>, <code>margin_top</code>. Keep consistency across backend and frontend codebases.</p>
+        </div>
+      </div>
+    </div>
+    <div class="prose" style="margin-top: 1rem;">
+      <p>Both extensions are available via CDN and can be imported selectively. The underlying <code>str()</code> mappings transform each token at compile time — zero runtime overhead.</p>
+    </div>
+  </section>
+
+  <!-- SECTION: counterx.fscss -->
+  <section class="section">
+    <p class="section-label">Animated Counter</p>
+    <h2>counterx.fscss — Percentage Counter Animation</h2>
+    <div class="prose">
+      <p>Generate complete <code>@keyframes</code> for smooth step-based counters with a single directive. Perfect for progress indicators, statistics, and animated percentages.</p>
+    </div>
+    <div class="code-block" data-lang="fscss">
+      <code><span class="fn">@import</span>(<span class="fn">exec</span>(_init counterx))
+
+<span class="selector">h2:after</span> {
+  <span class="property">content</span>: <span class="string">"..."</span>;
+  <span class="property">animation</span>: count 5s steps(100) forwards;
+}
+
+<span class="at">@keyframes</span> count {
+  <span class="at">@counter-init</span>(<span class="string">"Starting... "</span>, <span class="string">"Loading... "</span>, <span class="string">"Complete!"</span>)
+}</code>
+    </div>
+    <div class="prose">
+      <p>The <code>@counter-init</code> directive generates 101 keyframes (0% → 100%) with customizable text prefixes. Works perfectly with <code>steps(100)</code> for tick-by-tick animation — no JavaScript required.</p>
+    </div>
+    <div class="feature-list" style="margin: 1rem 0;">
+      <li>Zero JavaScript — pure CSS counter</li>
+      <li>Customizable start, process, and end messages</li>
+      <li>Uses FSCSS arrays to generate percentage keyframes</li>
+      <li>Lightweight: one line creates 100+ frames</li>
+    </div>
+    <div class="cta-group" style="margin-top: 1rem; justify-content: flex-start;">
+      <a href="https://github.com/Figsh/counterx.fscss" class="btn btn-outline" target="_blank" rel="noopener noreferrer"> GitHub Repository</a>
+      <a href="https://fscss.devtem.org/define" class="btn btn-outline" target="_blank" rel="noopener noreferrer"> @define Guide</a>
+    </div>
+  </section>
+
+  <!-- SECTION: circle-progress.fscss -->
+  <section class="section">
+    <p class="section-label">UI Component</p>
+    <h2>circle-progress.fscss — Animated Circular Progress</h2>
+    <div class="prose">
+      <p>A reusable radial progress indicator built with conic-gradient, CSS masks, and custom properties. Create animated donut charts and progress rings with just a few FSCSS directives.</p>
+    </div>
+    <div class="code-block" data-lang="fscss">
+      <code><span class="fn">@import</span>((*) <span class="fn">from</span> circle-progress)
+
+<span class="at">@progress-root</span>()
+<span class="at">@circle-progress</span>(<span class="selector">.progress-circle</span>)
+
+<span class="selector">.p72</span> { <span class="at">@progress-range</span>(72) }
+<span class="selector">.big</span> { <span class="at">@progress-size</span>(240px) }</code>
+    </div>
+    <div class="prose">
+      <p>Then in HTML:</p>
+    </div>
+    <div class="code-block" data-lang="html">
+      <code>&lt;div class="progress-circle p72 big"&gt;72%&lt;/div&gt;</code>
+    </div>
+    <div class="prose">
+      <p>The plugin exposes utility directives for size, stroke thickness, animation speed, and custom colors via CSS variables.</p>
+    </div>
+    <div class="compare" style="margin-top: 1.5rem;">
+      <div class="compare-col">
+        <p class="compare-label">Size Control</p>
+        <div class="code-block" data-lang="fscss">
+          <code><span class="selector">.large</span> { <span class="at">@progress-size</span>(260px) }
+<span class="selector">.small</span> { <span class="at">@progress-size</span>(120px) }</code>
+        </div>
+      </div>
+      <div class="compare-col">
+        <p class="compare-label">Stroke Thickness</p>
+        <div class="code-block" data-lang="fscss">
+          <code><span class="selector">.thin</span> { <span class="at">@progress-stroke</span>(8px) }
+<span class="selector">.thick</span> { <span class="at">@progress-stroke</span>(20px) }</code>
+        </div>
+      </div>
+      <div class="compare-col">
+        <p class="compare-label">Animation</p>
+        <div class="code-block" data-lang="fscss">
+          <code><span class="selector">.smooth</span> { <span class="at">@progress-animate</span>(0.8s) }</code>
+        </div>
+      </div>
+    </div>
+    <div class="prose" style="margin-top: 1rem;">
+      <p><strong>Color customization:</strong> Override CSS variables for any instance.</p>
+    </div>
+    <div class="code-block" data-lang="css">
+      <code><span class="selector">.blue</span> {
+  <span class="property">--progress-color-arc</span>: <span class="value">#4d9fff</span>;
+  <span class="property">--progress-color-glow</span>: <span class="value">rgba(77,159,255,0.45)</span>;
+}</code>
+    </div>
+    <div class="cta-group" style="margin-top: 1.5rem; justify-content: flex-start;">
+      <a href="https://github.com/Figsh/Circle-progress.fscss" class="btn btn-outline" target="_blank" rel="noopener noreferrer"> GitHub Repository</a>
+      <a href="https://fscss.devtem.org/event" class="btn btn-outline" target="_blank" rel="noopener noreferrer">@event System</a>
+    </div>
+  </section>
+
+  <!-- SECTION: how to import extensions (detailed) -->
+  <section class="section">
+    <p class="section-label">Import Guide</p>
+    <h2>Using Extensions in Your Project</h2>
+    <div class="prose">
+      <p>FSCSS extensions are plain <code>.fscss</code> files hosted on the CDN. Import them using either the <code>exec</code> method (legacy) or the modern <code>from</code> syntax.</p>
+    </div>
+    <div class="compare" style="margin-top: 1.5rem;">
+      <div class="compare-col">
+        <p class="compare-label">Modern Import (v1.1.16+)</p>
+        <div class="code-block" data-lang="fscss">
+          <code><span class="at">@import</span>((*) <span class="fn">from</span> camelCase)
+<span class="at">@import</span>((counter-init) <span class="fn">from</span> counterx)
+<span class="at">@import</span>((circle-progress, progress-root) <span class="fn">from</span> circle-progress)</code>
+        </div>
+        <div class="prose"><p>Selective imports: only bring what you need. The wildcard <code>(*)</code> imports all directives from the extension.</p></div>
+      </div>
+      <div class="compare-col">
+        <p class="compare-label new">exec Method (legacy)</p>
+        <div class="code-block" data-lang="fscss">
+          <code><span class="at">@import</span>(<span class="fn">exec</span>(_init camelCase))
+<span class="at">@import</span>(<span class="fn">exec</span>(_init counterx))</code>
+        </div>
+        <div class="prose"><p>Works with all versions. The <code>_init</code> prefix tells the parser to load the extension without specifying the <code>.fscss</code> extension.</p></div>
+      </div>
+    </div>
+    <div class="prose" style="margin-top: 1rem;">
+      <p><strong>CDN resolution:</strong> FSCSS automatically resolves imports against its CDN. Both <code>camelCase</code> and <code>snake_case</code> extensions are available out-of-the-box; community extensions like <code>counterx</code> and <code>circle-progress</code> are resolved via the same mechanism.</p>
+    </div>
+  </section>
+
+  <!-- SECTION: full extension grid (community modules) -->
+  <section class="section">
+    <p class="section-label">Community Modules</p>
+    <h2>More Extensions to Explore</h2>
+    <div class="prose">
+      <p>The FSCSS ecosystem is growing. Each extension is a standalone <code>.fscss</code> file that adds new capabilities — from design tokens to complex animations.</p>
+    </div>
+    <div class="project-grid" style="margin-top: 2rem;">
+      <div class="project-card">
+        <div class="project-meta"> data viz</div>
+        <h3>counterx.fscss</h3>
+        <p>Percentage counter animation with customizable messages. Generates full @keyframes using FSCSS arrays.</p>
+        <a href="https://github.com/Figsh/counterx.fscss" class="project-link" target="_blank">View on GitHub →</a>
+      </div>
+      <div class="project-card">
+        <div class="project-meta"> UI component</div>
+        <h3>circle-progress.fscss</h3>
+        <p>Animated radial progress indicator. Size, stroke, color, and animation controls via simple directives.</p>
+        <a href="https://github.com/Figsh/Circle-progress.fscss" class="project-link" target="_blank">View on GitHub →</a>
+      </div>
+      <div class="project-card">
+        <div class="project-meta">naming</div>
+        <h3>camelCase Mappings</h3>
+        <p>Write background-color, margin-top as camelCase properties. JS-style syntax for CSS.</p>
+        <a href="/how_to_use_camelcase_fscss" class="project-link">Read guide →</a>
+      </div>
+      <div class="project-card">
+        <div class="project-meta"> naming</div>
+        <h3>snake_case Mappings</h3>
+        <p>Pythonic property names: border_radius, font_weight. Perfect for cross-language consistency.</p>
+        <a href="/how_to_use_snakecase_fscss" class="project-link">Read guide →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: how to build your own extension -->
+  <section class="section">
+    <p class="section-label">Create Your Own</p>
+    <h2>Building Custom Extensions</h2>
+    <div class="prose">
+      <p>An FSCSS extension is simply a <code>.fscss</code> file containing fscss methods like <code>str()</code> mappings, <code>@define</code> blocks, or arrays. Share it with your team or publish it to the community.</p>
+    </div>
+    <div class="code-block" data-lang="fscss">
+      <code><span class="comment">/* my-shorthand.fscss */</span>
+<span class="fn">str</span>(<span class="property">card</span>, <span class="string">"background: white; border-radius: 24px; padding: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.05);"</span>)
+
+<span class="at">@define</span> <span class="fn">responsive-padding</span>(mobile, desktop) {`
+  <span class="property">padding</span>: <span class="at">@use</span>(mobile);
+  <span class="at">@media</span> (min-width: 768px) {
+    <span class="property">padding</span>: <span class="at">@use</span>(desktop);
+  }
+`}</code>
+    </div>
+    <div class="prose">
+      <p>Once saved, import it like any other extension:</p>
+    </div>
+    <div class="code-block" data-lang="fscss">
+      <code><span class="at">@import</span>((*) <span class="fn">from</span> "my-shorthand.fscss")
+
+<span class="selector">.card-component</span> {
+  <span class="property">card</span>;
+  <span class="at">@responsive-padding</span>(16px, 32px);
+}</code>
+    </div>
+    <div class="pull-quote" style="margin: 2rem 0 0 0;">
+      <p>Extensions turn FSCSS into a modular styling platform. Build once, import anywhere.</p>
+    </div>
+  </section>
+
+  <!-- CTA GROUP (same as main) -->
+  <section class="section">
+    <div class="cta-group">
+      <a href="https://www.npmjs.com/package/fscss" class="btn" target="_blank" rel="noopener noreferrer">📦 Install via npm</a>
+      <a href="https://github.com/fscss-ttr/FSCSS" class="btn btn-outline" target="_blank" rel="noopener noreferrer">⭐ GitHub Repository</a>
+      <a href="https://fscss.devtem.org" class="btn btn-outline" target="_blank" rel="noopener noreferrer">📘 Official Docs</a>
+      <a href="https://opencollective.com/Figsh" class="btn btn-outline" target="_blank" rel="noopener noreferrer">🎁 Support the writer</a>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER (identical to main) -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul class="footer-links">
+          <li><a href="/projects" target="_blank">Projects</a></li>
+          <li><a href="https://fscss.devtem.org/examples" target="_blank">Examples</a></li>
+          <li><a href="https://www.npmjs.com/package/fscss" target="_blank">NPM Package</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Community</h4>
+        <ul class="footer-links">
+          <li><a href="https://github.com/Figsh/xfscss/issues" target="_blank">GitHub Issues</a></li>
+          <li><a href="https://github.com/fscss-ttr/FSCSS/discussions" target="_blank">Discussions</a></li>
+          <li><a href="https://dev.to/fscss" target="_blank">dev.to</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul class="footer-links">
+          <li><a href="https://fscss.devtem.org/compiler" target="_blank">Playground</a></li>
+          <li><a href="https://github.com/fscss-ttr/FSCSS/blob/main/CONTRIBUTING.md" target="_blank">Contributing</a></li>
+          <li><a href="https://github.com/Figsh/xfscss/blob/main/LICENSE" target="_blank">MIT License</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Built with</h4>
+        <div class="footer-social">
+          <a href="https://github.com/fscss-ttr" target="_blank">GitHub Org</a>
+          <a href="https://dev.to/fscss" target="_blank">Blog</a>
+        </div>
+        <div style="margin-top: 16px; font-family: 'DM Sans', sans-serif; font-size: 0.75rem; color: var(--muted);">
+          FSCSS · Figured Shorthand CSS
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <p>2026 © FSCSS Project — Open source under MIT License. <br>Design your own CSS syntax, today.</p>
+      <p style="margin-top: 8px;"><a href="https://github.com/Figsh/xfscss">github.com/Figsh/xfscss</a> — <a href="https://www.npmjs.com/package/fscss">npm i fscss</a></p>
+    </div>
+  </div>
+</footer>
+<script src="/assets/scripts/general.js"></script>
+</body>
+</html>
