@@ -6,7 +6,7 @@
   
   <!-- Canonical -->
   <link rel="canonical" href="https://figsh.devtem.org/fscss_design_your_own_css_syntax">
-    <link rel="icon" href="fscss.png">
+  <link rel="icon" href="/fscss.png">
   <!-- Title (Stronger positioning + keywords) -->
   <title>FSCSS – Design Your Own CSS Syntax | Modern CSS Preprocessor</title>
   
@@ -90,7 +90,7 @@
   <!-- MASTHEAD -->
   <header class="masthead">
     <span class="masthead-label">CSS Tooling</span>
-    <span class="masthead-series">FSCSS Series</span>
+    <a href="/projects"><span class="masthead-series">FSCSS Series</span></a>
   </header>
 
   <!-- HERO -->
@@ -112,9 +112,9 @@
     <p style="font-size:1.05rem; line-height:1.8;">A few days ago, I wrote this inside a stylesheet:</p>
 
     <div class="vignette-code-block">
-      <code><span class="selector">.card</span> {
+      <code><pre><span class="selector">.card</span> {
   <span class="property">my-card-x</span>
-}</code>
+}</pre></code>
     </div>
 
     <p style="font-size:1.05rem; line-height:1.8;">No class utilities. No framework. No JavaScript.</p>
@@ -142,9 +142,9 @@
       <div class="compare-col">
         <p class="compare-label new">FSCSS</p>
         <div class="code-block" data-lang="fscss">
-          <code><span class="property">backgroundColor</span>: red;
+          <code><pre><span class="property">backgroundColor</span>: red;
 <span class="property">bdRadius</span>: 8px;
-<span class="property">my-card-x</span>;</code>
+<span class="property">my-card-x</span>;</pre></code>
         </div>
       </div>
     </div>
@@ -194,18 +194,18 @@
       <p>Once you want to pass data into your custom syntax, <code>@define</code> is the right tool. It introduces parameters, structure, and reuse — without leaving CSS-like syntax.</p>
     </div>
     <div class="code-block" data-lang="fscss">
-      <code><span class="at">@define</span> <span class="fn">card</span>(bg, color) {
+      <code><pre><span class="at">@define</span> <span class="fn">card</span>(bg, color) {
   <span class="property">background</span>: <span class="at">@use</span>(bg);
   <span class="property">color</span>:       <span class="at">@use</span>(color);
   <span class="property">padding</span>:     20px;
   <span class="property">border-radius</span>: 20px;
-}</code>
+}</pre></code>
     </div>
     <div class="prose"><p>Then use it anywhere:</p></div>
     <div class="code-block" data-lang="fscss">
-      <code><span class="selector">.card</span> {
+      <code><pre><span class="selector">.card</span> {
   <span class="at">@card</span>(<span class="value">#ff9955</span>, <span class="value">white</span>);
-}</code>
+}</pre></code>
     </div>
     <div class="prose"><p>Think of it like CSS functions you wrote yourself. No build plugins. No PostCSS config. Just FSCSS.</p></div>
   </section>
@@ -235,16 +235,16 @@
     <h2>A Real Extension: <span class="mono">camelCase.fscss</span></h2>
     <div class="prose"><p>A typical extension file is just a list of <code>str()</code> mappings. The <code>camelCase</code> module maps JavaScript-style property names to their CSS equivalents:</p></div>
     <div class="code-block" data-lang="fscss">
-      <code><span class="fn">str</span>(<span class="property">backgroundColor</span>,      <span class="string">"background-color"</span>)
+      <code><pre><span class="fn">str</span>(<span class="property">backgroundColor</span>,      <span class="string">"background-color"</span>)
 <span class="fn">str</span>(<span class="property">borderTopRightRadius</span>,  <span class="string">"border-top-right-radius"</span>)
-<span class="fn">str</span>(<span class="property">fontWeight</span>,            <span class="string">"font-weight"</span>)</code>
+<span class="fn">str</span>(<span class="property">fontWeight</span>,            <span class="string">"font-weight"</span>)</pre></code>
     </div>
     <div class="prose"><p>After importing it, camelCase property names become valid anywhere in your stylesheets:</p></div>
     <div class="code-block" data-lang="fscss">
-      <code><span class="selector">body</span> {
+      <code><pre><span class="selector">body</span> {
   <span class="property">backgroundColor</span>: <span class="value">#FF9955</span>;
   <span class="property">fontWeight</span>:       <span class="value">600</span>;
-}</code>
+}</pre></code>
     </div>
   </section>
 
@@ -275,7 +275,7 @@
       <div class="footer-col">
         <h4>Explore</h4>
         <ul class="footer-links">
-          <li><a href="https://fscss.devtem.org" target="_blank">Documentation</a></li>
+          <li><a href="/projects" target="_blank">Projects</a></li>
           <li><a href="https://fscss.devtem.org/examples" target="_blank">Examples</a></li>
           <li><a href="https://www.npmjs.com/package/fscss" target="_blank">NPM Package</a></li>
         </ul>
@@ -316,3 +316,4 @@
 <script src="/assets/scripts/general.js"></script>
 </body>
 </html>
+
