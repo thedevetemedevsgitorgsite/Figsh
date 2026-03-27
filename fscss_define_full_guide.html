@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  
+  <!-- Canonical -->
+  <link rel="canonical" href="https://figsh.devtem.org/fscss_define_full_guide">
+  <link rel="icon" href="/fscss.png">
+  <!-- Title -->
+  <title>FSCSS @define Full Guide — Reusable Style Definitions | Modern CSS Preprocessor</title>
+  
+  <!-- Primary SEO -->
+  <meta name="description" content="Master FSCSS @define — create reusable, parameterized style definitions. Learn property defines, block defines, parameter handling, and build modular component systems.">
+  <meta name="keywords" content="FSCSS @define, CSS mixins, reusable CSS, parameterized styles, CSS preprocessor, component system CSS, FSCSS guide">
+  <meta name="author" content="Figsh">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#111827">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="FSCSS @define Full Guide — Reusable Style Definitions">
+  <meta property="og:description" content="Create reusable, parameterized style definitions for modular CSS architecture. Build component systems with clean, maintainable code using FSCSS defines.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://figsh.devtem.org/fscss_define_full_guide">
+  <meta property="og:image" content="https://fscss.devtem.org/fscss.png">
+  <meta property="og:site_name" content="FSCSS">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FSCSS @define Full Guide">
+  <meta name="twitter:description" content="Master FSCSS defines: property defines, block defines, parameters, composition, and best practices for modular CSS.">
+  <meta name="twitter:image" content="https://fscss.devtem.org/fscss.png">
+  
+  <!-- Fonts & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Serif+Text:ital@0;1&family=JetBrains+Mono:wght@400;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles/general.css">
+  <style>
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <span class="masthead-label">CSS Tooling</span>
+    <a href="/projects"><span class="masthead-series">FSCSS Series</span></a>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">Deep Dive</p>
+    <h1>FSCSS <em>@define</em> Full Guide</h1>
+    <div class="hero-meta">
+      <span>12 min read</span>
+      <span class="dot">·</span>
+      <span class="tag">#FSCSS</span>
+      <span class="tag">#define</span>
+      <span class="tag">#CSS</span>
+      <span class="tag">#components</span>
+    </div>
+  </section>
+
+  <!-- OPENING VIGNETTE -->
+  <div class="vignette">
+    <p style="font-size:1.05rem; line-height:1.8;">Create reusable, parameterized style definitions for modular CSS architecture. Build component systems with clean, maintainable code using FSCSS defines.</p>
+    <div class="vignette-code-block" style="margin-top: 1.5rem;">
+      <pre><code><span class="at">@define</span> <span class="fn">card</span>(bg: <span class="value">#fff</span>, color: <span class="value">#1e293b</span>, radius: <span class="value">16px</span>) {
+  <span class="property">background</span>: <span class="at">@use</span>(bg);
+  <span class="property">color</span>: <span class="at">@use</span>(color);
+  <span class="property">border-radius</span>: <span class="at">@use</span>(radius);
+  <span class="property">padding</span>: <span class="value">24px</span>;
+  <span class="property">box-shadow</span>: <span class="value">0 4px 12px rgba(0,0,0,0.05)</span>;
+}
+
+<span class="selector">.product-card</span> {
+  <span class="at">@card</span>(<span class="value">#f8fafc</span>, <span class="value">#0f172a</span>, <span class="value">20px</span>);
+}</code></pre>
+    </div>
+    <p style="margin-top: 1rem; font-size:1.05rem; line-height:1.8;">Think of <code>@define</code> as lightweight, parameterized mixins that generate CSS directly at compile time. Predictable, performant, and perfect for building component systems.</p>
+  </div>
+
+  <!-- SECTION 1: Introduction & Key Concepts -->
+  <section class="section">
+    <p class="section-label">Core Concept</p>
+    <h2>What is @define?</h2>
+    <div class="prose">
+      <p>The <code>@define</code> method in FSCSS allows you to create reusable style definitions that can accept parameters. Unlike traditional CSS preprocessor mixins, FSCSS defines operate as direct string generators, injecting final CSS output during compilation.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h4>Reusable</h4>
+        <p>Define once, use anywhere across your project</p>
+      </div>
+      <div class="feature-card">
+        <h4>Parameter Support</h4>
+        <p>Accept inputs with configurable default values</p>
+      </div>
+      <div class="feature-card">
+        <h4>Two Modes</h4>
+        <p>Property defines and block defines for any use case</p>
+      </div>
+      <div class="feature-card">
+        <h4>Direct Output</h4>
+        <p>Expands to final CSS during compilation</p>
+      </div>
+    </div>
+    <div class="pull-quote">
+      <p><strong>Key Concept:</strong> Parameters must be accessed using <code>@use()</code> inside define bodies. This ensures the compiler correctly resolves parameter values.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 2: Basic Syntax -->
+  <section class="section">
+    <p class="section-label">Getting Started</p>
+    <h2>Basic Syntax</h2>
+    <div class="prose">
+      <p>The basic syntax for creating a define:</p>
+    </div>
+    <div class="code-block">
+      <pre><code><span class="at">@define</span> <span class="fn">name</span>(param: default) {
+  <span class="property">property</span>: <span class="at">@use</span>(param);
+  <span class="comment">/* more properties */</span>
+}</code></pre>
+    </div>
+    <div class="prose">
+      <p><strong>Simple define without parameters:</strong></p>
+    </div>
+    <div class="code-block">
+      <pre><code><span class="at">@define</span> <span class="fn">center</span>() {
+  <span class="property">display</span>: flex;
+  <span class="property">justify-content</span>: center;
+  <span class="property">align-items</span>: center;
+}
+
+<span class="selector">.box</span> {
+  <span class="at">@center</span>()
+}</code></pre>
+    </div>
+    <div class="code-block">
+      <pre><code><span class="comment">/* Output */</span>
+<span class="selector">.box</span> {
+  <span class="property">display</span>: flex;
+  <span class="property">justify-content</span>: center;
+  <span class="property">align-items</span>: center;
+}</code></pre>
+    </div>
+  </section>
+
+  <!-- SECTION 3: Parameters and @use() -->
+  <section class="section">
+    <p class="section-label">Parameters</p>
+    <h2>Working with Parameters & @use()</h2>
+    <div class="prose">
+      <p>Defines can accept parameters with optional default values. Parameters must be accessed using <code>@use()</code>.</p>
+    </div>
+    <div class="compare" style="margin-top: 1rem;">
+      <div class="compare-col">
+        <p class="compare-label">✅ Correct Usage</p>
+        <div class="code-block">
+          <pre><code><span class="at">@define</span> <span class="fn">card</span>(bg: black, color: white) {
+  <span class="property">background</span>: <span class="at">@use</span>(bg);
+  <span class="property">color</span>: <span class="at">@use</span>(color);
+}</code></pre>
+        </div>
+      </div>
+      <div class="compare-col">
+        <p class="compare-label new">❌ Incorrect Usage</p>
+        <div class="code-block">
+          <pre><code><span class="at">@define</span> <span class="fn">card</span>(bg: black, color: white) {
+  <span class="property">background</span>: bg;    <span class="comment">/* Won't work */</span>
+  <span class="property">color</span>: color;      <span class="comment">/* Won't work */</span>
+}</code></pre>
+        </div>
+      </div>
+    </div>
+    <div class="prose">
+      <p><strong>Example with multiple parameters:</strong></p>
+    </div>
+    <div class="code-block">
+      <pre><code><span class="at">@define</span> <span class="fn">card</span>(bg: black, color: white, pad: 20px, bd-r: 10px) {
+  <span class="property">background</span>: <span class="at">@use</span>(bg);
+  <span class="property">border-radius</span>: <span class="at">@use</span>(bd-r);
+  <span class="property">padding</span>: <span class="at">@use</span>(pad);
+  <span class="property">color</span>: <span class="at">@use</span>(color);
+}
+
+<span class="selector">.box</span> {
+  <span class="at">@card</span>(<span class="value">#007999</span>)
+}</code></pre>
+    </div>
+    <div class="code-block">
+      <pre><code><span class="comment">/* Output */</span>
+<span class="selector">.box</span> {
+  <span class="property">background</span>: <span class="value">#007999</span>;
+  <span class="property">border-radius</span>: <span class="value">10px</span>;
+  <span class="property">padding</span>: <span class="value">20px</span>;
+  <span class="property">color</span>: <span class="value">white</span>;
+}</code></pre>
+    </div>
+  </section>
+
+  <!-- SECTION 4: Property Defines vs Block Defines -->
+  <section class="section">
+    <p class="section-label">Two Modes</p>
+    <h2>Property Defines vs Block Defines</h2>
+    <div class="compare" style="margin-top: 1rem;">
+      <div class="compare-col">
+        <p class="compare-label">Property Defines</p>
+        <div class="code-block">
+          <pre><code><span class="at">@define</span> <span class="fn">flexCenter</span>() {
+  <span class="property">display</span>: flex;
+  <span class="property">justify-content</span>: center;
+  <span class="property">align-items</span>: center;
+}
+
+<span class="at">@define</span> <span class="fn">roundedCorners</span>(radius: 8px) {
+  <span class="property">border-radius</span>: <span class="at">@use</span>(radius);
+  <span class="property">overflow</span>: hidden;
+}
+
+<span class="selector">.container</span> {
+  <span class="at">@flexCenter</span>();
+  <span class="at">@roundedCorners</span>(12px);
+}</code></pre>
+        </div>
+        <div class="prose"><p>Generate reusable groups of CSS properties. Ideal for layout utilities, flex/grid helpers, and common styling patterns.</p></div>
+      </div>
+      <div class="compare-col">
+        <p class="compare-label new">Block Defines</p>
+        <div class="code-block">
+          <pre><code><span class="at">@define</span> <span class="fn">mobile</span>(size) {
+  `
+  @media (max-width: @use(size)) {
+    .container {
+      padding: 10px;
+    }
+    .box {
+      width: 100%;
+    }
+  }
+  `
+}
+
+<span class="at">@mobile</span>(768px)</code></pre>
+        </div>
+        <div class="prose"><p>Generate full CSS structures like media queries or nested rules. They use string blocks enclosed in quotes (backticks or double quotes).</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: Composing Multiple Defines -->
+  <section class="section">
+    <p class="section-label">Composition</p>
+    <h2>Combining Defines for Complex Components</h2>
+    <div class="prose">
+      <p>Multiple defines can be combined within a single rule for powerful composition.</p>
+    </div>
+    <div class="code-block">
+      <pre><code><span class="at">@define</span> <span class="fn">cardBase</span>(pad: 1.5rem) {
+  <span class="property">padding</span>: <span class="at">@use</span>(pad);
+  <span class="property">background</span>: white;
+  <span class="property">border-radius</span>: 12px;
+  <span class="property">box-shadow</span>: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+<span class="at">@define</span> <span class="fn">cardHeader</span>() {
+  <span class="property">border-bottom</span>: 1px solid #eaeaea;
+  <span class="property">margin-bottom</span>: 1rem;
+  <span class="property">padding-bottom</span>: 0.75rem;
+}
+
+<span class="at">@define</span> <span class="fn">flexCenter</span>() {
+  <span class="property">display</span>: flex;
+  <span class="property">align-items</span>: center;
+  <span class="property">justify-content</span>: center;
+}
+
+<span class="selector">.product-card</span> {
+  <span class="at">@cardBase</span>()
+
+  <span class="selector">.card-title</span> {
+    <span class="property">font-size</span>: 1.5rem;
+    <span class="property">font-weight</span>: 600;
+    <span class="at">@cardHeader</span>()
+  }
+
+  <span class="selector">.card-content</span> {
+    <span class="at">@flexCenter</span>()
+    <span class="property">min-height</span>: 200px;
+  }
+}</code></pre>
+    </div>
+  </section>
+
+  <!-- SECTION 6: Building a Component System -->
+  <section class="section">
+    <p class="section-label">Real-World Example</p>
+    <h2>Building a Button Component System</h2>
+    <div class="code-block">
+      <pre><code><span class="comment">/* Base button define */</span>
+<span class="at">@define</span> <span class="fn">btnBase</span>(pad: 0.75rem 1.5rem, fs: 1rem, weight: 600) {
+  <span class="property">padding</span>: <span class="at">@use</span>(pad);
+  <span class="property">font-size</span>: <span class="at">@use</span>(fs);
+  <span class="property">font-weight</span>: <span class="at">@use</span>(weight);
+  <span class="property">border</span>: none;
+  <span class="property">border-radius</span>: 6px;
+  <span class="property">cursor</span>: pointer;
+  <span class="property">transition</span>: all 0.3s ease;
+  <span class="property">display</span>: inline-block;
+  <span class="property">text-align</span>: center;
+}
+
+<span class="comment">/* Variant defines */</span>
+<span class="at">@define</span> <span class="fn">btnPrimary</span>(bg: #3b82f6, color: white) {
+  <span class="property">background</span>: <span class="at">@use</span>(bg);
+  <span class="property">color</span>: <span class="at">@use</span>(color);
+
+  <span class="at">&:hover</span> {
+    <span class="property">background</span>: darken(<span class="at">@use</span>(bg), 10%);
+  }
+}
+
+<span class="at">@define</span> <span class="fn">btnOutline</span>(color: #3b82f6) {
+  <span class="property">background</span>: transparent;
+  <span class="property">color</span>: <span class="at">@use</span>(color);
+  <span class="property">border</span>: 2px solid <span class="at">@use</span>(color);
+
+  <span class="at">&:hover</span> {
+    <span class="property">background</span>: <span class="at">@use</span>(color);
+    <span class="property">color</span>: white;
+  }
+}
+
+<span class="comment">/* Usage */</span>
+<span class="selector">.primary-btn</span> {
+  <span class="at">@btnBase</span>()
+  <span class="at">@btnPrimary</span>()
+}
+
+<span class="selector">.outline-btn</span> {
+  <span class="at">@btnBase</span>(pad: 0.75rem 2rem)
+  <span class="at">@btnOutline</span>(#7c3aed)
+}</code></pre>
+    </div>
+  </section>
+
+  <!-- SECTION 7: Responsive System with Block Defines -->
+  <section class="section">
+    <p class="section-label">Advanced Patterns</p>
+    <h2>Responsive Helper System</h2>
+    <div class="code-block">
+      <pre><code><span class="comment">/* Responsive breakpoint defines */</span>
+<span class="at">@define</span> <span class="fn">respondTo</span>(breakpoint) {
+  `
+  @media (min-width: @use(breakpoint)) {
+    .responsive-content {
+      padding: 2rem;
+    }
+  }
+  `
+}
+
+<span class="at">@define</span> <span class="fn">mobileOnly</span>() {
+  `
+  @media (max-width: 767px) {
+    .hide-mobile {
+      display: none;
+    }
+  }
+  `
+}
+
+<span class="at">@define</span> <span class="fn">darkMode</span>() {
+  `
+  @media (prefers-color-scheme: dark) {
+    body {
+      background: #1a1a1a;
+      color: #f0f0f0;
+    }
+  }
+  `
+}
+
+<span class="at">@respondTo</span>(768px)
+<span class="at">@mobileOnly</span>()
+<span class="at">@darkMode</span>()</code></pre>
+    </div>
+  </section>
+
+  <!-- SECTION 8: Importing Define Libraries -->
+  <section class="section">
+    <p class="section-label">Modular Architecture</p>
+    <h2>Sharing Defines Across Projects</h2>
+    <div class="prose">
+      <p>Defines can be organized into libraries and shared through external files using <code>@import</code>.</p>
+    </div>
+    <div class="code-block">
+      <pre><code><span class="comment">/* _theme.fscss */</span>
+<span class="at">@define</span> <span class="fn">lightTheme</span>() {
+  <span class="property">--bg</span>: <span class="value">#ffffff</span>;
+  <span class="property">--text</span>: <span class="value">#333333</span>;
+  <span class="property">--primary</span>: <span class="value">#3b82f6</span>;
+}
+
+<span class="at">@define</span> <span class="fn">darkTheme</span>() {
+  <span class="property">--bg</span>: <span class="value">#1a1a1a</span>;
+  <span class="property">--text</span>: <span class="value">#f0f0f0</span>;
+  <span class="property">--primary</span>: <span class="value">#60a5fa</span>;
+}
+
+<span class="comment">/* _layout.fscss */</span>
+<span class="at">@define</span> <span class="fn">container</span>(max: 1200px) {
+  <span class="property">max-width</span>: <span class="at">@use</span>(max);
+  <span class="property">margin</span>: <span class="value">0 auto</span>;
+  <span class="property">padding</span>: <span class="value">0 1rem</span>;
+}
+
+<span class="at">@define</span> <span class="fn">grid</span>(cols: 3, gap: 2rem) {
+  <span class="property">display</span>: grid;
+  <span class="property">grid-template-columns</span>: repeat(<span class="at">@use</span>(cols), 1fr);
+  <span class="property">gap</span>: <span class="at">@use</span>(gap);
+}
+
+<span class="comment">/* main.fscss */</span>
+<span class="at">@import</span>(exec(_theme.fscss))
+<span class="at">@import</span>(exec(_layout.fscss))
+
+<span class="selector">:root</span> {
+  <span class="at">@lightTheme</span>()
+}
+
+<span class="selector">.container</span> {
+  <span class="at">@container</span>()
+}
+
+<span class="selector">.product-grid</span> {
+  <span class="at">@grid</span>(4, 1.5rem)
+}</code></pre>
+    </div>
+  </section>
+
+  <!-- SECTION 9: Best Practices -->
+  <section class="section">
+    <p class="section-label">Pro Tips</p>
+    <h2>Best Practices for @define</h2>
+    <ul class="feature-list">
+      <li><strong>Use Property Defines for utilities</strong> — Keep property defines focused on single responsibilities like flex center, rounded corners, or shadows.</li>
+      <li><strong>Use Block Defines for complex structures</strong> — Reserve block defines for media queries, keyframes, and nested rule structures.</li>
+      <li><strong>Provide default values</strong> — Always include sensible defaults for parameters to make defines flexible yet usable out of the box.</li>
+      <li><strong>Keep defines focused</strong> — Each define should do one thing well. Compose multiple defines for complex components.</li>
+      <li><strong>Organize into files</strong> — Structure your defines into logical files (e.g., <code>_buttons.fscss</code>, <code>_layout.fscss</code>, <code>_animations.fscss</code>) and import them as needed.</li>
+    </ul>
+    <div class="pull-quote">
+      <p>Pro Tip: Organize your defines into logical files and import them as needed. This creates a maintainable component library that scales with your project.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 10: Summary Table -->
+  <section class="section">
+    <p class="section-label">Quick Reference</p>
+    <h2>Why Use FSCSS Defines?</h2>
+    <table class="rule-table">
+      <thead><tr><th>Feature</th><th>Benefit</th></tr></thead>
+      <tbody>
+        <tr><td>Reusable styles</td><td>Reduce repetition and maintenance overhead</td></tr>
+        <tr><td>Parameter support</td><td>Flexible components that adapt to different contexts</td></tr>
+        <tr><td>Direct expansion</td><td>Predictable output with no runtime overhead</td></tr>
+        <tr><td>Plugin-friendly</td><td>Share define libraries across projects and teams</td></tr>
+        <tr><td>Two modes</td><td>Property defines for utilities, block defines for complex structures</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- CTA GROUP -->
+  <section class="section">
+    <div class="cta-group">
+      <a href="https://www.npmjs.com/package/fscss" class="btn" target="_blank" rel="noopener noreferrer">📦 Install via npm</a>
+      <a href="https://github.com/fscss-ttr/FSCSS" class="btn btn-outline" target="_blank" rel="noopener noreferrer">⭐ GitHub Repository</a>
+      <a href="https://fscss.devtem.org" class="btn btn-outline" target="_blank" rel="noopener noreferrer">📘 Official Docs</a>
+      <a href="/extensions" class="btn btn-outline">🔌 Explore Extensions</a>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul class="footer-links">
+          <li><a href="/projects">Projects</a></li>
+          <li><a href="/extensions">Extensions</a></li>
+          <li><a href="https://www.npmjs.com/package/fscss" target="_blank">NPM Package</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Community</h4>
+        <ul class="footer-links">
+          <li><a href="https://github.com/Figsh/xfscss/issues" target="_blank">GitHub Issues</a></li>
+          <li><a href="https://github.com/fscss-ttr/FSCSS/discussions" target="_blank">Discussions</a></li>
+          <li><a href="https://dev.to/fscss" target="_blank">dev.to</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul class="footer-links">
+          <li><a href="https://fscss.devtem.org/compiler" target="_blank">Playground</a></li>
+          <li><a href="https://github.com/fscss-ttr/FSCSS/blob/main/CONTRIBUTING.md" target="_blank">Contributing</a></li>
+          <li><a href="https://github.com/Figsh/xfscss/blob/main/LICENSE" target="_blank">MIT License</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Built with</h4>
+        <div class="footer-social">
+          <a href="https://github.com/fscss-ttr" target="_blank">GitHub Org</a>
+          <a href="https://dev.to/fscss" target="_blank">Blog</a>
+        </div>
+        <div style="margin-top: 16px; font-family: 'DM Sans', sans-serif; font-size: 0.75rem; color: var(--muted);">
+          FSCSS · Figured Shorthand CSS
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <p>2026 © FSCSS Project — Open source under MIT License. <br>Build modular CSS systems with @define.</p>
+      <p style="margin-top: 8px;"><a href="https://github.com/Figsh/xfscss">github.com/Figsh/xfscss</a> — <a href="https://www.npmjs.com/package/fscss">npm i fscss</a></p>
+    </div>
+  </div>
+</footer>
+<script src="/assets/scripts/general.js"></script>
+</body>
+</html>
