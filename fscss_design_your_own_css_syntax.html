@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  
+  <!-- Canonical -->
+  <link rel="canonical" href="https://figsh.devtem.org/fscss_design_your_own_css_syntax">
+  
+  <!-- Title (Stronger positioning + keywords) -->
+  <title>FSCSS – Design Your Own CSS Syntax | Modern CSS Preprocessor</title>
+  
+  <!-- Primary SEO -->
+  <meta name="description" content="FSCSS (Figured Shorthand Cascading Style Sheets) lets you design your own CSS syntax. Create custom properties, define your own naming system, and build scalable design systems without build tools.">
+  
+  <meta name="keywords" content="FSCSS, CSS preprocessor, custom CSS syntax, design system CSS, Sass alternative, shorthand CSS, frontend styling system, CSS without build tools">
+  
+  <meta name="author" content="Figsh">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#111827">
+  <meta name="language" content="en-US">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="FSCSS – Design Your Own CSS Syntax">
+  <meta property="og:description" content="Stop memorizing CSS. Define your own styling language with FSCSS and build scalable design systems your way.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://figsh.devtem.org/fscss_design_your_own_css_syntax">
+  <meta property="og:image" content="https://fscss.devtem.org/fscss.png">
+  <meta property="og:image:alt" content="FSCSS Custom Syntax Preview">
+  <meta property="og:site_name" content="FSCSS">
+  <meta property="og:locale" content="en_US">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FSCSS – Design Your Own CSS Syntax">
+  <meta name="twitter:description" content="Define your own CSS vocabulary with FSCSS. No build tools. No limits. Just powerful styling logic.">
+  <meta name="twitter:image" content="https://fscss.devtem.org/fscss.png">
+  <meta name="twitter:site" content="@fscss_ttr">
+  <meta name="twitter:creator" content="@MrFigsh">
+  
+  <!-- Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Serif+Text:ital@0;1&family=JetBrains+Mono:wght@400;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="/assets/styles/general.css">
+  
+  <!-- Structured Data: Software -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "FSCSS",
+      "alternateName": "Figured Shorthand Cascading Style Sheets",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "All",
+      "programmingLanguage": "CSS",
+      "description": "FSCSS is a modern CSS preprocessor that allows developers to design their own syntax and build scalable styling systems without build tools.",
+      "url": "https://figsh.devtem.org/fscss_design_your_own_css_syntax",
+      "creator": {
+        "@type": "Person",
+        "name": "Figsh"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "DevTemple",
+        "url": "https://devtem.org"
+      }
+    }
+  </script>
+  
+  <!-- Structured Data: WebPage -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "FSCSS – Design Your Own CSS Syntax",
+      "description": "Landing page explaining how FSCSS enables custom CSS syntax and flexible styling systems.",
+      "url": "https://figsh.devtem.org/fscss_design_your_own_css_syntax"
+    }
+  </script>
+  
+</head>
+<body>
+
+<div class="container">
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <span class="masthead-label">CSS Tooling</span>
+    <span class="masthead-series">FSCSS Series</span>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">Deep Dive</p>
+    <h1>FSCSS: What If You Could <em>Design</em> Your Own CSS Syntax?</h1>
+    <div class="hero-meta">
+      <span>5 min read</span>
+      <span class="dot">·</span>
+      <span class="tag">#CSS</span>
+      <span class="tag">#FSCSS</span>
+      <span class="tag">#DevTools</span>
+      <span class="tag">#opensource</span>
+    </div>
+  </section>
+
+  <!-- OPENING VIGNETTE -->
+  <div class="vignette">
+    <p style="font-size:1.05rem; line-height:1.8;">A few days ago, I wrote this inside a stylesheet:</p>
+
+    <div class="vignette-code-block">
+      <code><span class="selector">.card</span> {
+  <span class="property">my-card-x</span>
+}</code>
+    </div>
+
+    <p style="font-size:1.05rem; line-height:1.8;">No class utilities. No framework. No JavaScript.</p>
+    <p style="font-size:1.05rem; line-height:1.8;">And it <strong>worked</strong> — not because CSS supports it, but because I defined what <code>my-card-x</code> means. That's the idea behind FSCSS.</p>
+  </div>
+
+  <!-- SECTION 1 -->
+  <section class="section">
+    <p class="section-label">The Shift</p>
+    <h2>From Writing CSS to <em>Designing</em> CSS</h2>
+
+    <div class="prose">
+      <p>Traditional CSS gives you a fixed vocabulary. You memorise its properties and work within them. FSCSS flips the premise entirely: instead of adapting to CSS, you define what CSS means inside your project.</p>
+    </div>
+
+    <div class="compare">
+      <div class="compare-col">
+        <p class="compare-label">Traditional</p>
+        <div class="code-block" data-lang="css">
+          <code><span class="property">background-color</span>: red;
+<span class="property">border-radius</span>: 8px;
+<span class="property">margin-top</span>: 20px;</code>
+        </div>
+      </div>
+      <div class="compare-col">
+        <p class="compare-label new">FSCSS</p>
+        <div class="code-block" data-lang="fscss">
+          <code><span class="property">backgroundColor</span>: red;
+<span class="property">bdRadius</span>: 8px;
+<span class="property">my-card-x</span>;</code>
+        </div>
+      </div>
+    </div>
+
+    <div class="pull-quote">
+      <p>You can redefine how CSS itself is written — and that changes everything about how you architect styles.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 2: str() -->
+  <section class="section">
+    <p class="section-label">Core Primitive</p>
+    <h2><span class="mono">str()</span> — The Foundation</h2>
+    <div class="prose">
+      <p>At its simplest, <code>str()</code> maps one syntax token to another. It's a translation layer sitting between your stylesheet and the browser.</p>
+    </div>
+    <div class="code-block" data-lang="fscss">
+      <code><span class="fn">str</span>(<span class="property">backgroundColor</span>, <span class="string">"background-color"</span>)</code>
+    </div>
+    <div class="prose">
+      <p>After that single declaration, this is valid:</p>
+    </div>
+    <div class="code-block" data-lang="fscss">
+      <code><span class="selector">body</span> {
+  <span class="property">backgroundColor</span>: red;
+}</code>
+    </div>
+    <div class="prose">
+      <p>But <code>str()</code> isn't limited to single-property aliases. It can expand a single token into an entire block of styles — turning a bare identifier into a full styling primitive:</p>
+    </div>
+    <div class="code-block" data-lang="fscss">
+      <code><span class="fn">str</span>(<span class="property">my-card-x</span>, <span class="string">"
+  background: red;
+  color: white;
+  padding: 20px;
+  border-radius: 20px;
+"</span>)</code>
+    </div>
+    <div class="prose"><p>This is no longer shorthand — it's a custom styling primitive you invented.</p></div>
+  </section>
+
+  <!-- SECTION 3: @define -->
+  <section class="section">
+    <p class="section-label">A Cleaner Abstraction</p>
+    <h2>Parameterized Primitives with <span class="mono">@define</span></h2>
+    <div class="prose">
+      <p>Once you want to pass data into your custom syntax, <code>@define</code> is the right tool. It introduces parameters, structure, and reuse — without leaving CSS-like syntax.</p>
+    </div>
+    <div class="code-block" data-lang="fscss">
+      <code><span class="at">@define</span> <span class="fn">card</span>(bg, color) {
+  <span class="property">background</span>: <span class="at">@use</span>(bg);
+  <span class="property">color</span>:       <span class="at">@use</span>(color);
+  <span class="property">padding</span>:     20px;
+  <span class="property">border-radius</span>: 20px;
+}</code>
+    </div>
+    <div class="prose"><p>Then use it anywhere:</p></div>
+    <div class="code-block" data-lang="fscss">
+      <code><span class="selector">.card</span> {
+  <span class="at">@card</span>(<span class="value">#ff9955</span>, <span class="value">white</span>);
+}</code>
+    </div>
+    <div class="prose"><p>Think of it like CSS functions you wrote yourself. No build plugins. No PostCSS config. Just FSCSS.</p></div>
+  </section>
+
+  <!-- SECTION 4: Import System -->
+  <section class="section">
+    <p class="section-label">Extensions & Modules</p>
+    <h2>The Import System</h2>
+    <div class="prose"><p>FSCSS extensions are plain <code>.fscss</code> files. There are two import styles, each suited to different situations:</p></div>
+    <table class="rule-table">
+      <thead><tr><th>Style</th><th>Syntax</th><th>Best for</th></tr></thead>
+      <tbody>
+        <tr><td><strong>exec</strong> (standard)</td><td><code>@import(exec("location"))</code></td><td>Debugging, custom paths, external files</td></tr>
+        <tr><td><strong>Named (wildcard)</strong></td><td><code>@import((*) from "location")</code></td><td>Importing everything from a module</td></tr>
+        <tr><td><strong>Named (selective)</strong></td><td><code>@import((blocks) from "location")</code></td><td>Importing specific blocks only</td></tr>
+      </tbody>
+    </table>
+    <h3>Built-in CDN Resolution</h3>
+    <div class="prose"><p>FSCSS automatically resolves imports against its CDN. So this:</p></div>
+    <div class="code-block" data-lang="fscss"><code><span class="at">@import</span>(<span class="fn">exec</span>(_init camelCase))</code></div>
+    <div class="prose"><p>…loads <code>camelCase.fscss</code> straight from the CDN. The small but important rule: <code>_init</code> is used with <code>exec</code>, but dropped when using <code>from</code>.</p></div>
+  </section>
+
+  <!-- SECTION 5: Example -->
+  <section class="section">
+    <p class="section-label">In Practice</p>
+    <h2>A Real Extension: <span class="mono">camelCase.fscss</span></h2>
+    <div class="prose"><p>A typical extension file is just a list of <code>str()</code> mappings. The <code>camelCase</code> module maps JavaScript-style property names to their CSS equivalents:</p></div>
+    <div class="code-block" data-lang="fscss">
+      <code><span class="fn">str</span>(<span class="property">backgroundColor</span>,      <span class="string">"background-color"</span>)
+<span class="fn">str</span>(<span class="property">borderTopRightRadius</span>,  <span class="string">"border-top-right-radius"</span>)
+<span class="fn">str</span>(<span class="property">fontWeight</span>,            <span class="string">"font-weight"</span>)</code>
+    </div>
+    <div class="prose"><p>After importing it, camelCase property names become valid anywhere in your stylesheets:</p></div>
+    <div class="code-block" data-lang="fscss">
+      <code><span class="selector">body</span> {
+  <span class="property">backgroundColor</span>: <span class="value">#FF9955</span>;
+  <span class="property">fontWeight</span>:       <span class="value">600</span>;
+}</code>
+    </div>
+  </section>
+
+  <!-- SECTION 6: What This Enables -->
+  <section class="section">
+    <p class="section-label">The Bigger Picture</p>
+    <h2>What FSCSS Enables</h2>
+    <ul class="feature-list">
+      <li>Create your own property naming conventions — camelCase, snake_case, or totally custom tokens</li>
+      <li>Build shorthand systems precisely tailored to your team's workflow</li>
+      <li>Define reusable style primitives that encapsulate entire design decisions</li>
+      <li>Share extensions as plain <code>.fscss</code> files — no package overhead</li>
+      <li>Extend CSS expressiveness without touching JavaScript or a build config</li>
+    </ul>
+    <div class="cta-group">
+      <a href="https://www.npmjs.com/package/fscss" class="btn" target="_blank" rel="noopener noreferrer">📦 Install via npm</a>
+      <a href="https://github.com/fscss-ttr/FSCSS" class="btn btn-outline" target="_blank" rel="noopener noreferrer">⭐ GitHub Repository</a>
+      <a href="https://fscss.devtem.org" class="btn btn-outline" target="_blank" rel="noopener noreferrer">📘 Official Docs</a>
+      <a href="https://opencollective.com/Figsh" class="btn btn-outline" target="_blank" rel="noopener noreferrer">🎁 Support the writer</a>
+    </div>
+  </section>
+</div>
+
+<!-- ENHANCED FOOTER with full links & resources -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul class="footer-links">
+          <li><a href="https://fscss.devtem.org" target="_blank">Documentation</a></li>
+          <li><a href="https://fscss.devtem.org/examples" target="_blank">Examples</a></li>
+          <li><a href="https://www.npmjs.com/package/fscss" target="_blank">NPM Package</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Community</h4>
+        <ul class="footer-links">
+          <li><a href="https://github.com/Figsh/xfscss/issues" target="_blank">GitHub Issues</a></li>
+          <li><a href="https://github.com/fscss-ttr/FSCSS/discussions" target="_blank">Discussions</a></li>
+          <li><a href="https://dev.to/fscss" target="_blank">dev.to</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul class="footer-links">
+          <li><a href="https://fscss.devtem.org/compiler" target="_blank">Playground</a></li>
+          <li><a href="https://github.com/fscss-ttr/FSCSS/blob/main/CONTRIBUTING.md" target="_blank">Contributing</a></li>
+          <li><a href="https://github.com/Figsh/xfscss/blob/main/LICENSE" target="_blank">MIT License</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Built with</h4>
+        <div class="footer-social">
+          <a href="https://github.com/fscss-ttr" target="_blank">GitHub Org</a>
+          <a href="https://dev.to/fscss" target="_blank">Blog</a>
+        </div>
+        <div style="margin-top: 16px; font-family: 'DM Sans', sans-serif; font-size: 0.75rem; color: var(--muted);">
+          FSCSS · Figured Shorthand CSS
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <p>2026 © FSCSS Project — Open source under MIT License. <br>Design your own CSS syntax, today.</p>
+      <p style="margin-top: 8px;"><a href="https://github.com/Figsh/xfscss">github.com/Figsh/xfscss</a> — <a href="https://www.npmjs.com/package/fscss">npm i fscss</a></p>
+    </div>
+  </div>
+</footer>
+<script src="/assets/scripts/general.js"></script>
+</body>
+</html>
