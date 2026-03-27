@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  
+  <!-- Canonical -->
+  <link rel="canonical" href="https://figsh.devtem.org/how_to_use_snakecase_fscss">
+  <link rel="icon" href="/fscss.png">
+  <!-- Title -->
+  <title>How to Use snake_case with FSCSS — Python-Style CSS Properties | FSCSS Guide</title>
+  
+  <!-- Primary SEO -->
+  <meta name="description" content="Write CSS using snake_case property names with FSCSS. Import the snake_case extension and use border_radius, background_color, and margin_top like Python.">
+  <meta name="keywords" content="snake_case CSS, FSCSS snake_case, Python style CSS, snake_case properties, FSCSS tutorial, CSS naming conventions">
+  <meta name="author" content="Figsh">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#111827">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="How to Use snake_case with FSCSS — Python-Style CSS Properties">
+  <meta property="og:description" content="Stop writing hyphenated CSS. Use snake_case property names with FSCSS. Import the extension and write border_radius, background_color, and more.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://figsh.devtem.org/how_to_use_snakecase_fscss">
+  <meta property="og:image" content="https://fscss.devtem.org/fscss.png">
+  <meta property="og:site_name" content="FSCSS">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Use snake_case with FSCSS">
+  <meta name="twitter:description" content="Write CSS like Python: border_radius, background_color, margin_top. Import snake_case.fscss and transform your workflow.">
+  <meta name="twitter:image" content="https://fscss.devtem.org/fscss.png">
+  
+  <!-- Fonts & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Serif+Text:ital@0;1&family=JetBrains+Mono:wght@400;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles/general.css">
+</head>
+<body>
+
+<div class="container">
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <span class="masthead-label">CSS Tooling</span>
+    <a href="/projects"><span class="masthead-series">FSCSS Series</span></a>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">Naming Convention Guide</p>
+    <h1>How to Use <em>snake_case</em> with FSCSS</h1>
+    <div class="hero-meta">
+      <span>6 min read</span>
+      <span class="dot">·</span>
+      <span class="tag">#snake_case</span>
+      <span class="tag">#FSCSS</span>
+      <span class="tag">#CSS</span>
+      <span class="tag">#python</span>
+    </div>
+  </section>
+
+  <!-- OPENING VIGNETTE -->
+  <div class="vignette">
+    <p style="font-size:1.05rem; line-height:1.8;">If you're a Python developer or simply love the clean, readable style of <code>snake_case</code>, CSS's hyphenated properties can feel out of place. What if you could write <code>border_radius</code> and <code>background_color</code> instead?</p>
+    <div class="vignette-code-block" style="margin: 1rem 0;">
+      <code><pre><span class="selector">.dashboard-card</span> {
+  <span class="property">background_color</span>: <span class="value">#1e293b</span>;
+  <span class="property">border_radius</span>: <span class="value">16px</span>;
+  <span class="property">box_shadow</span>: <span class="value">0 4px 12px rgba(0,0,0,0.1)</span>;
+  <span class="property">padding_top</span>: <span class="value">20px</span>;
+  <span class="property">padding_bottom</span>: <span class="value">20px</span>;
+}</pre></code>
+    </div>
+    <p style="font-size:1.05rem; line-height:1.8;">With FSCSS's <strong>snake_case extension</strong>, you can write CSS using Pythonic naming conventions. Import once, and your stylesheets will feel right at home alongside your backend code.</p>
+  </div>
+
+  <!-- SECTION 1: What is snake_case Extension -->
+  <section class="section">
+    <p class="section-label">The Concept</p>
+    <h2>From Hyphens to Underscores</h2>
+    <div class="prose">
+      <p>The snake_case extension is a lightweight <code>.fscss</code> module that maps Python-style property names to their standard CSS equivalents. Each <code>str()</code> declaration creates a direct translation layer between your syntax and the browser.</p>
+    </div>
+    <div class="code-block" data-lang="fscss">
+      <code><pre><span class="comment">/* Inside snake_case.fscss */</span>
+<span class="fn">str</span>(<span class="property">background_color</span>, <span class="string">"background-color"</span>)
+<span class="fn">str</span>(<span class="property">border_radius</span>, <span class="string">"border-radius"</span>)
+<span class="fn">str</span>(<span class="property">font_weight</span>, <span class="string">"font-weight"</span>)
+<span class="fn">str</span>(<span class="property">margin_top</span>, <span class="string">"margin-top"</span>)
+<span class="fn">str</span>(<span class="property">padding_left</span>, <span class="string">"padding-left"</span>)
+<span class="fn">str</span>(<span class="property">box_shadow</span>, <span class="string">"box-shadow"</span>)
+<span class="fn">str</span>(<span class="property">text_align</span>, <span class="string">"text-align"</span>)
+<span class="fn">str</span>(<span class="property">line_height</span>, <span class="string">"line-height"</span>)</pre></code>
+    </div>
+    <div class="pull-quote">
+      <p>Each <code>str()</code> pair transforms snake_case tokens into standard CSS properties at compile time — zero runtime overhead.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 2: Installation & Import -->
+  <section class="section">
+    <p class="section-label">Setup</p>
+    <h2>Importing the snake_case Extension</h2>
+    <div class="prose">
+      <p>FSCSS automatically resolves <code>snake_case</code> from its CDN. You have two import styles depending on your FSCSS version.</p>
+    </div>
+    <div class="compare" style="margin-top: 1.5rem;">
+      <div class="compare-col">
+        <p class="compare-label">Modern Import (v1.1.16+)</p>
+        <div class="code-block" data-lang="fscss">
+          <code><span class="at">@import</span>((*) <span class="fn">from</span> snake_case)</code>
+        </div>
+        <div class="prose"><p>The wildcard <code>(*)</code> imports all property mappings. You can also import selectively:</p></div>
+        <div class="code-block" data-lang="fscss">
+          <code><pre><span class="at">@import</span>((snake_case) <span class="fn">from</span> snake_case)</pre></code>
+        </div>
+      </div>
+      <div class="compare-col">
+        <p class="compare-label new">exec Method (legacy)</p>
+        <div class="code-block" data-lang="fscss">
+          <code><pre><span class="at">@import</span>(<span class="fn">exec</span>(_init snake_case))</pre></code>
+        </div>
+        <div class="prose"><p>The <code>_init</code> prefix tells FSCSS to load the extension from the CDN without specifying the <code>.fscss</code> file extension.</p></div>
+      </div>
+    </div>
+    <div class="prose" style="margin-top: 1.5rem;">
+      <p><strong>Complete setup example:</strong></p>
+    </div>
+    <div class="code-block" data-lang="html">
+      <code><pre>&lt;script src="https://cdn.jsdelivr.net/npm/fscss@1.1.22/exec.min.js" async&gt;&lt;/script&gt;
+&lt;style&gt;
+  @import((*) from snake_case)
+  
+  body {
+    background_color: #f8fafc;
+    font_family: 'DM Sans', sans-serif;
+    line_height: 1.6;
+  }
+&lt;/style&gt;</pre></code>
+    </div>
+  </section>
+
+  <!-- SECTION 3: Full Mapping Reference -->
+  <section class="section">
+    <p class="section-label">Reference</p>
+    <h2>snake_case Property Mappings</h2>
+    <div class="prose">
+      <p>The extension includes mappings for all common CSS properties. Here's a comprehensive reference of what becomes available after import.</p>
+    </div>
+    <table class="rule-table" style="width: 100%; margin: 1.5rem 0;">
+      <thead>
+        <tr><th>snake_case Token</th><th>CSS Property</th><th>Example Usage</th>\
+      </thead>
+      <tbody>
+        <tr><td><code>background_color</code></td><td><code>background-color</code></td><td><code>background_color: #0f172a;</code></td>\
+        <tr><td><code>border_radius</code></td><td><code>border-radius</code></td><td><code>border_radius: 12px;</code></td>\
+        <tr><td><code>font_weight</code></td><td><code>font-weight</code></td><td><code>font_weight: 600;</code></td>\
+        <tr><td><code>margin_top</code></td><td><code>margin-top</code></td><td><code>margin_top: 24px;</code></td>\
+        <tr><td><code>margin_bottom</code></td><td><code>margin-bottom</code></td><td><code>margin_bottom: 16px;</code></td>\
+        <tr><td><code>padding_left</code></td><td><code>padding-left</code></td><td><code>padding_left: 20px;</code></td>\
+        <tr><td><code>padding_right</code></td><td><code>padding-right</code></td><td><code>padding_right: 20px;</code></td>\
+        <tr><td><code>box_shadow</code></td><td><code>box-shadow</code></td><td><code>box_shadow: 0 4px 6px rgba(0,0,0,0.1);</code></td>\
+        <tr><td><code>text_align</code></td><td><code>text-align</code></td><td><code>text_align: center;</code></td>\
+        <tr><td><code>line_height</code></td><td><code>line-height</code></td><td><code>line_height: 1.5;</code></td>\
+        <tr><td><code>z_index</code></td><td><code>z-index</code></td><td><code>z_index: 10;</code></td>\
+        <tr><td><code>transition</code></td><td><code>transition</code></td><td><code>transition: all 0.2s ease;</code></td>\
+        <tr><td><code>transform</code></td><td><code>transform</code></td><td><code>transform: scale(1.05);</code></td>\
+        <tr><td><code>overflow_x</code></td><td><code>overflow-x</code></td><td><code>overflow_x: hidden;</code></td>\
+        <tr><td><code>overflow_y</code></td><td><code>overflow-y</code></td><td><code>overflow_y: auto;</code></td>\
+      </tbody>
+     </table>
+    <div class="prose">
+      <p>Multi-part properties follow the same pattern: <code>border_top_left_radius</code> → <code>border-top-left-radius</code>, <code>grid_template_columns</code> → <code>grid-template-columns</code>.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 4: Practical Examples -->
+  <section class="section">
+    <p class="section-label">In Practice</p>
+    <h2>Real-World Usage Examples</h2>
+    <div class="prose">
+      <p>Once imported, snake_case property names work anywhere a standard CSS property would. Here are common patterns that feel natural for Python developers.</p>
+    </div>
+    
+    <h3>Button Component (Pythonic Style)</h3>
+    <div class="code-block" data-lang="fscss">
+      <code><pre><span class="selector">.btn_primary</span> {
+  background_color: <span class="value">#3b82f6</span>;
+  color: <span class="value">white</span>;
+  border_radius: <span class="value">8px</span>;
+  padding_top: <span class="value">10px</span>;
+  padding_bottom: <span class="value">10px</span>;
+  padding_left: <span class="value">20px</span>;
+  padding_right: <span class="value">20px</span>;
+  font_weight: <span class="value">500</span>;
+  transition: <span class="value">all 0.2s ease</span>;
+  
+  <span class="at">&:hover</span> {
+    background_color: <span class="value">#2563eb</span>;
+    transform: <span class="value">translateY(-2px)</span>;
+  }
+}</pre></code>
+    </div>
+
+    <h3>Dashboard Card Layout</h3>
+    <div class="code-block" data-lang="fscss">
+      <code><pre><span class="selector">.dashboard_card</span> {
+  background_color: <span class="value">white</span>;
+  border_radius: <span class="value">24px</span>;
+  box_shadow: <span class="value">0 10px 25px -5px rgba(0,0,0,0.1)</span>;
+  padding: <span class="value">24px</span>;
+  margin_bottom: <span class="value">20px</span>;
+}
+
+<span class="selector">.card_title</span> {
+  font_size: <span class="value">1.5rem</span>;
+  font_weight: <span class="value">700</span>;
+  margin_bottom: <span class="value">12px</span>;
+  line_height: <span class="value">1.2</span>;
+}
+
+<span class="selector">.card_description</span> {
+  font_size: <span class="value">1rem</span>;
+  line_height: <span class="value">1.6</span>;
+  color: <span class="value">#475569</span>;
+}</pre></code>
+    </div>
+
+    <h3>Responsive Grid System</h3>
+    <div class="code-block" data-lang="fscss">
+      <code><pre><span class="selector">.grid_container</span> {
+  display: <span class="value">grid</span>;
+  grid_template_columns: <span class="value">repeat(3, 1fr)</span>;
+  gap: <span class="value">24px</span>;
+  
+  <span class="at">@media (max-width: 768px)</span> {
+    grid_template_columns: <span class="value">1fr</span>;
+    gap: <span class="value">16px</span>;
+  }
+}</pre></code>
+    </div>
+  </section>
+
+  <!-- SECTION 5: Creating Custom snake_case Mappings -->
+  <section class="section">
+    <p class="section-label">Extending</p>
+    <h2>Adding Your Own snake_case Properties</h2>
+    <div class="prose">
+      <p>The snake_case extension covers standard properties, but you can extend it with your own <code>str()</code> mappings for custom needs or proprietary CSS features.</p>
+    </div>
+    <div class="code-block" data-lang="fscss">
+      <code><pre><span class="comment">/* Add to your own extension or after import */</span>
+<span class="fn">str</span>(<span class="property">glass_effect</span>, <span class="string">"backdrop_filter: blur(12px); background: rgba(255,255,255,0.2);"</span>)
+<span class="fn">str</span>(<span class="property">gradient_text</span>, <span class="string">"background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; background-clip: text; color: transparent;"</span>)
+
+<span class="selector">.hero_section</span> {
+  glass_effect
+  gradient_text
+}</pre></code>
+    </div>
+    <div class="prose">
+      <p>Notice how <code>str()</code> can map a single snake_case token to multiple declarations — perfect for creating design system shorthands that match your naming conventions.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 6: Why snake_case? -->
+  <section class="section">
+    <p class="section-label">The Why</p>
+    <h2>Benefits of snake_case CSS</h2>
+    <ul class="feature-list">
+      <li><strong>Python ecosystem alignment:</strong> If you're building Django, Flask, or FastAPI apps, your CSS now matches your backend naming conventions.</li>
+      <li><strong>Enhanced readability:</strong> Underscores can make long property names easier to parse at a glance.</li>
+      <li><strong>Consistent with databases:</strong> Many SQL and data workflows use snake_case — now your frontend matches.</li>
+      <li><strong>Team familiarity:</strong> Teams coming from Python or Ruby backgrounds adopt CSS faster with familiar syntax.</li>
+      <li><strong>No build tools:</strong> FSCSS works at runtime or compile-time — zero config overhead.</li>
+    </ul>
+    <div class="pull-quote">
+      <p>snake_case CSS bridges the gap between frontend and backend naming conventions, creating a more unified codebase experience.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 7: camelCase vs snake_case -->
+  <section class="section">
+    <p class="section-label">Comparison</p>
+    <h2>Choosing Your Naming Style</h2>
+    <div class="prose">
+      <p>FSCSS offers both camelCase and snake_case extensions. Which one should you choose? It depends on your team's background and project context.</p>
+    </div>
+    <div class="compare" style="margin-top: 1.5rem;">
+      <div class="compare-col">
+        <p class="compare-label">camelCase</p>
+        <div class="code-block" data-lang="fscss">
+          <code><span class="property">backgroundColor</span>
+<span class="property">borderRadius</span>
+<span class="property">marginTop</span></code>
+        </div>
+        <div class="prose"><p>Best for: React/Vue/Next.js projects, JavaScript-heavy teams, inline styles consistency.</p></div>
+      </div>
+      <div class="compare-col">
+        <p class="compare-label new">snake_case</p>
+        <div class="code-block" data-lang="fscss">
+          <code><span class="property">background_color</span>
+<span class="property">border_radius</span>
+<span class="property">margin_top</span></code>
+        </div>
+        <div class="prose"><p>Best for: Python/Django backends, data-heavy applications, teams preferring readability.</p></div>
+      </div>
+    </div>
+    <div class="prose">
+      <p>You can even use both in the same project — FSCSS allows mixing extensions freely.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 8: Troubleshooting -->
+  <section class="section">
+    <p class="section-label">Troubleshooting</p>
+    <h2>Common Questions</h2>
+    <div class="prose">
+      <p><strong>Q: Does snake_case work with CSS custom properties (variables)?</strong><br>Yes. <code>var(--primary_color)</code> works exactly as expected. The extension only transforms property names, not values or variable references.</p>
+      <p><strong>Q: Can I mix snake_case and standard CSS?</strong><br>Absolutely. The extension adds new valid tokens without removing existing CSS syntax. You can use <code>background-color</code> and <code>background_color</code> side by side.</p>
+      <p><strong>Q: What about vendor prefixes?</strong><br>Standard prefixes work: <code>webkit_backdrop_filter</code> maps to <code>-webkit-backdrop-filter</code>.</p>
+      <p><strong>Q: Is there a performance cost?</strong><br>The transformation happens once at compile/load time. Runtime performance is identical to standard CSS.</p>
+      <p><strong>Q: Can I use snake_case in media queries and keyframes?</strong><br>Yes. All standard CSS at-rules support snake_case property names after import.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 9: Next Steps -->
+  <section class="section">
+    <p class="section-label">Next Steps</p>
+    <h2>Explore More FSCSS Extensions</h2>
+    <div class="prose">
+      <p>snake_case is just one of many extensions. Check out camelCase for JavaScript-style naming, counterx for animated counters, or circle-progress for UI components.</p>
+    </div>
+    <div class="project-grid" style="margin-top: 1.5rem;">
+      <div class="project-card">
+        <div class="project-meta"> naming</div>
+        <h3>camelCase Mappings</h3>
+        <p>JavaScript-style property names: backgroundColor, borderRadius.</p>
+        <a href="/how_to_use_camelcase_fscss" class="project-link">Read guide →</a>
+      </div>
+      <div class="project-card">
+        <div class="project-meta"> animation</div>
+        <h3>counterx.fscss</h3>
+        <p>Percentage counter with auto-generated keyframes.</p>
+        <a href="https://github.com/Figsh/counterx.fscss" class="project-link" target="_blank">View on GitHub →</a>
+      </div>
+      <div class="project-card">
+        <div class="project-meta"> UI</div>
+        <h3>circle-progress.fscss</h3>
+        <p>Animated circular progress component.</p>
+        <a href="https://github.com/Figsh/Circle-progress.fscss" class="project-link" target="_blank">View on GitHub →</a>
+      </div>
+    </div>
+    <div class="cta-group" style="margin-top: 2rem;">
+      <a href="/extensions" class="btn"> Explore All Extensions</a>
+      <a href="https://www.npmjs.com/package/fscss" class="btn btn-outline" target="_blank">📦 Install FSCSS</a>
+      <a href="https://github.com/fscss-ttr/FSCSS" class="btn btn-outline" target="_blank">⭐ GitHub</a>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul class="footer-links">
+          <li><a href="/projects">Projects</a></li>
+          <li><a href="/extensions">Extensions</a></li>
+          <li><a href="https://www.npmjs.com/package/fscss" target="_blank">NPM Package</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Community</h4>
+        <ul class="footer-links">
+          <li><a href="https://github.com/Figsh/xfscss/issues" target="_blank">GitHub Issues</a></li>
+          <li><a href="https://github.com/fscss-ttr/FSCSS/discussions" target="_blank">Discussions</a></li>
+          <li><a href="https://dev.to/fscss" target="_blank">dev.to</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul class="footer-links">
+          <li><a href="https://fscss.devtem.org/compiler" target="_blank">Playground</a></li>
+          <li><a href="https://github.com/fscss-ttr/FSCSS/blob/main/CONTRIBUTING.md" target="_blank">Contributing</a></li>
+          <li><a href="https://github.com/Figsh/xfscss/blob/main/LICENSE" target="_blank">MIT License</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Built with</h4>
+        <div class="footer-social">
+          <a href="https://github.com/fscss-ttr" target="_blank">GitHub Org</a>
+          <a href="https://dev.to/fscss" target="_blank">Blog</a>
+        </div>
+        <div style="margin-top: 16px; font-family: 'DM Sans', sans-serif; font-size: 0.75rem; color: var(--muted);">
+          FSCSS · Figured Shorthand CSS
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <p>2026 © FSCSS Project — Open source under MIT License. <br>Write CSS your way — snake_case style.</p>
+      <p style="margin-top: 8px;"><a href="https://github.com/Figsh/xfscss">github.com/Figsh/xfscss</a> — <a href="https://www.npmjs.com/package/fscss">npm i fscss</a></p>
+    </div>
+  </div>
+</footer>
+<script src="/assets/scripts/general.js"></script>
+</body>
+</html>
