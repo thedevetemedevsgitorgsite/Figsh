@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  
+  <!-- Canonical -->
+  <link rel="canonical" href="https://figsh.devtem.org/how_to_use_camelcase_fscss">
+  <link rel="icon" href="/fscss.png">
+  <!-- Title -->
+  <title>How to Use camelCase with FSCSS — JavaScript-Style CSS Properties | FSCSS Guide</title>
+  
+  <!-- Primary SEO -->
+  <meta name="description" content="Learn how to write CSS using camelCase property names with FSCSS. Import the camelCase extension and write backgroundColor, borderRadius, and fontWeight like JavaScript.">
+  <meta name="keywords" content="camelCase CSS, FSCSS camelCase, JavaScript style CSS, camelCase properties, FSCSS tutorial, CSS naming conventions">
+  <meta name="author" content="Figsh">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#111827">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="How to Use camelCase with FSCSS — JavaScript-Style CSS Properties">
+  <meta property="og:description" content="Stop writing hyphenated CSS. Use camelCase property names with FSCSS. Import the extension and write backgroundColor, marginTop, and more.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://figsh.devtem.org/how_to_use_camelcase_fscss">
+  <meta property="og:image" content="https://fscss.devtem.org/fscss.png">
+  <meta property="og:site_name" content="FSCSS">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Use camelCase with FSCSS">
+  <meta name="twitter:description" content="Write CSS like JavaScript: backgroundColor, borderRadius, fontWeight. Import camelCase.fscss and transform your workflow.">
+  <meta name="twitter:image" content="https://fscss.devtem.org/fscss.png">
+  
+  <!-- Fonts & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Serif+Text:ital@0;1&family=JetBrains+Mono:wght@400;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles/general.css">
+</head>
+<body>
+
+<div class="container">
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <span class="masthead-label">CSS Tooling</span>
+    <a href="/projects"><span class="masthead-series">FSCSS Series</span></a>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">Naming Convention Guide</p>
+    <h1>How to Use <em>camelCase</em> with FSCSS</h1>
+    <div class="hero-meta">
+      <span>6 min read</span>
+      <span class="dot">·</span>
+      <span class="tag">#camelCase</span>
+      <span class="tag">#FSCSS</span>
+      <span class="tag">#CSS</span>
+      <span class="tag">#workflow</span>
+    </div>
+  </section>
+
+  <!-- OPENING VIGNETTE -->
+  <div class="vignette">
+    <p style="font-size:1.05rem; line-height:1.8;">Let's face it: <code>background-color</code> feels nothing like the JavaScript you write every day. What if you could style elements using <code>backgroundColor</code> instead?</p>
+    <div class="vignette-code-block" style="margin: 1rem 0;">
+      <code><pre><span class="selector">.card</span> {
+  <span class="property">backgroundColor</span>: <span class="value">#1e293b</span>;
+  <span class="property">borderRadius</span>: <span class="value">16px</span>;
+  <span class="property">boxShadow</span>: <span class="value">0 4px 12px rgba(0,0,0,0.1)</span>;
+}</pre></code>
+    </div>
+    <p style="font-size:1.05rem; line-height:1.8;">With FSCSS's <strong>camelCase extension</strong>, this isn't just a dream — it's your reality. No build tools, no complex configs. Just import and write.</p>
+  </div>
+
+  <!-- SECTION 1: What is camelCase Extension -->
+  <section class="section">
+    <p class="section-label">The Concept</p>
+    <h2>From Hyphens to CamelCase</h2>
+    <div class="prose">
+      <p>The camelCase extension is a lightweight <code>.fscss</code> module that maps JavaScript-style property names to their standard CSS equivalents. Each <code>str()</code> declaration creates a direct translation layer between your syntax and the browser.</p>
+    </div>
+    <div class="code-block" data-lang="fscss">
+      <code><pre><span class="comment">/* Inside camelCase.fscss */</span>
+<span class="fn">str</span>(<span class="property">backgroundColor</span>, <span class="string">"background-color"</span>)
+<span class="fn">str</span>(<span class="property">borderRadius</span>, <span class="string">"border-radius"</span>)
+<span class="fn">str</span>(<span class="property">fontWeight</span>, <span class="string">"font-weight"</span>)
+<span class="fn">str</span>(<span class="property">marginTop</span>, <span class="string">"margin-top"</span>)
+<span class="fn">str</span>(<span class="property">paddingLeft</span>, <span class="string">"padding-left"</span>)
+<span class="fn">str</span>(<span class="property">boxShadow</span>, <span class="string">"box-shadow"</span>)</pre></code>
+    </div>
+    <div class="pull-quote">
+      <p>Each <code>str()</code> pair is a promise: write the left token, get the right CSS property at compile time.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 2: Installation & Import -->
+  <section class="section">
+    <p class="section-label">Setup</p>
+    <h2>Importing the camelCase Extension</h2>
+    <div class="prose">
+      <p>FSCSS automatically resolves <code>camelCase</code> from its CDN. You have two import styles depending on your FSCSS version.</p>
+    </div>
+    <div class="compare" style="margin-top: 1.5rem;">
+      <div class="compare-col">
+        <p class="compare-label">Modern Import (version 1.1.16 up)</p>
+        <div class="code-block" data-lang="fscss">
+          <code><pre><span class="at">@import</span>((*) <span class="fn">from</span> camelCase)</pre></code>
+        </div>
+        <div class="prose"><p>The wildcard <code>(*)</code> imports all property mappings. You can also import selectively:</p></div>
+        <div class="code-block" data-lang="fscss">
+          <code><pre><span class="at">@import</span>((camelCase) <span class="fn">from</span> camelCase)</pre></code>
+        </div>
+      </div>
+      <div class="compare-col">
+        <p class="compare-label new">exec Method (legacy)</p>
+        <div class="code-block" data-lang="fscss">
+          <code><pre><span class="at">@import</span>(<span class="fn">exec</span>(_init camelCase))</pre></code>
+        </div>
+        <div class="prose"><p>The <code>_init</code> prefix tells FSCSS to load the extension from the CDN without specifying the <code>.fscss</code> file extension.</p></div>
+      </div>
+    </div>
+    <div class="prose" style="margin-top: 1.5rem;">
+      <p><strong>Complete setup example:</strong></p>
+    </div>
+    <div class="code-block" data-lang="html">
+      <code><pre>&lt;script src="https://cdn.jsdelivr.net/npm/fscss@1.1.22/exec.min.js" defer&gt;&lt;/script&gt;
+&lt;style&gt;
+  @import((*) from camelCase)
+  
+  body {
+    backgroundColor: #f8fafc;
+    fontFamily: 'DM Sans', sans-serif;
+  }
+&lt;/style&gt;</pre></code>
+    </div>
+  </section>
+
+  <!-- SECTION 3: Full Mapping Reference -->
+  <section class="section">
+    <p class="section-label">Reference</p>
+    <h2>camelCase Property Mappings</h2>
+    <div class="prose">
+      <p>The extension includes mappings for all common CSS properties. Here's a comprehensive reference of what becomes available after import.</p>
+    </div>
+    <table class="rule-table" style="width: 100%; margin: 1.5rem 0;">
+      <thead>
+        <tr><th>camelCase Token</th><th>CSS Property</th><th>Example Usage</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>backgroundColor</code></td><td><code>background-color</code></td><td><code>backgroundColor: #0f172a;</code></td></tr>
+        <tr><td><code>borderRadius</code></td><td><code>border-radius</code></td><td><code>borderRadius: 12px;</code></td></tr>
+        <tr><td><code>fontWeight</code></td><td><code>font-weight</code></td><td><code>fontWeight: 600;</code></td></tr>
+        <tr><td><code>marginTop</code></td><td><code>margin-top</code></td><td><code>marginTop: 24px;</code></td></tr>
+        <tr><td><code>marginBottom</code></td><td><code>margin-bottom</code></td><td><code>marginBottom: 16px;</code></td></tr>
+        <tr><td><code>paddingLeft</code></td><td><code>padding-left</code></td><td><code>paddingLeft: 20px;</code></td></tr>
+        <tr><td><code>paddingRight</code></td><td><code>padding-right</code></td><td><code>paddingRight: 20px;</code></td></tr>
+        <tr><td><code>boxShadow</code></td><td><code>box-shadow</code></td><td><code>boxShadow: 0 4px 6px rgba(0,0,0,0.1);</code></td></tr>
+        <tr><td><code>textAlign</code></td><td><code>text-align</code></td><td><code>textAlign: center;</code></td></tr>
+        <tr><td><code>lineHeight</code></td><td><code>line-height</code></td><td><code>lineHeight: 1.5;</code></td></tr>
+        <tr><td><code>zIndex</code></td><td><code>z-index</code></td><td><code>zIndex: 10;</code></td></tr>
+        <tr><td><code>transition</code></td><td><code>transition</code></td><td><code>transition: all 0.2s ease;</code></td></tr>
+        <tr><td><code>transform</code></td><td><code>transform</code></td><td><code>transform: scale(1.05);</code></td></tr>
+      </tbody>
+    </table>
+    <div class="prose">
+      <p>Multi-part properties follow the same pattern: <code>borderTopLeftRadius</code> → <code>border-top-left-radius</code>, <code>gridTemplateColumns</code> → <code>grid-template-columns</code>.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 4: Practical Examples -->
+  <section class="section">
+    <p class="section-label">In Practice</p>
+    <h2>Real-World Usage Examples</h2>
+    <div class="prose">
+      <p>Once imported, camelCase property names work anywhere a standard CSS property would. Here are common patterns.</p>
+    </div>
+    
+    <h3>Button Component</h3>
+    <div class="code-block" data-lang="fscss">
+      <code><pre><span class="selector">.btn-primary</span> {
+  backgroundColor: <span class="value">#3b82f6</span>;
+  color: <span class="value">white</span>;
+  borderRadius: <span class="value">8px</span>;
+  paddingTop: <span class="value">10px</span>;
+  paddingBottom: <span class="value">10px</span>;
+  paddingLeft: <span class="value">20px</span>;
+  paddingRight: <span class="value">20px</span>;
+  fontWeight: <span class="value">500</span>;
+  transition: <span class="value">all 0.2s ease</span>;
+  
+  <span class="at">&:hover</span> {
+    backgroundColor: <span class="value">#2563eb</span>;
+    transform: <span class="value">translateY(-2px)</span>;
+  }
+}</pre></code>
+    </div>
+
+    <h3>Card Layout</h3>
+    <div class="code-block" data-lang="fscss">
+      <code><pre><span class="selector">.card</span> {
+  backgroundColor: <span class="value">white</span>;
+  borderRadius: <span class="value">24px</span>;
+  boxShadow: <span class="value">0 10px 25px -5px rgba(0,0,0,0.1)</span>;
+  padding: <span class="value">24px</span>;
+  marginBottom: <span class="value">20px</span>;
+}
+
+<span class="selector">.card-title</span> {
+  fontSize: <span class="value">1.5rem</span>;
+  fontWeight: <span class="value">700</span>;
+  marginBottom: <span class="value">12px</span>;
+  lineHeight: <span class="value">1.2</span>;
+}
+
+<span class="selector">.card-description</span> {
+  fontSize: <span class="value">1rem</span>;
+  lineHeight: <span class="value">1.6</span>;
+  color: <span class="value">#475569</span>;
+}</pre></code>
+    </div>
+
+    <h3>Responsive Design</h3>
+    <div class="code-block" data-lang="fscss">
+      <code><pre><span class="selector">.container</span> {
+  maxWidth: <span class="value">1200px</span>;
+  marginLeft: <span class="value">auto</span>;
+  marginRight: <span class="value">auto</span>;
+  paddingLeft: <span class="value">20px</span>;
+  paddingRight: <span class="value">20px</span>;
+  
+  <span class="at">@media (min-width: 768px)</span> {
+    paddingLeft: <span class="value">40px</span>;
+    paddingRight: <span class="value">40px</span>;
+  }
+}</pre></code>
+    </div>
+  </section>
+
+  <!-- SECTION 5: Creating Custom camelCase Mappings -->
+  <section class="section">
+    <p class="section-label">Extending</p>
+    <h2>Adding Your Own camelCase Properties</h2>
+    <div class="prose">
+      <p>The camelCase extension covers standard properties, but you can extend it with your own <code>str()</code> mappings for custom needs or proprietary CSS features.</p>
+    </div>
+    <div class="code-block" data-lang="fscss">
+      <code><pre><span class="comment">/* Add to your own extension or after import */</span>
+<span class="fn">str</span>(<span class="property">backdropBlur</span>, <span class="string">"backdrop-filter: blur(8px);"</span>)
+<span class="fn">str</span>(<span class="property">textGradient</span>, <span class="string">"background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; background-clip: text; color: transparent;"</span>)
+
+<span class="selector">.hero</span> {
+  backdropBlur
+  textGradient
+}</pre></code>
+    </div>
+    <div class="prose">
+      <p>Notice how <code>str()</code> can map a single token to multiple declarations — perfect for creating design system shorthands.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 6: Why camelCase? -->
+  <section class="section">
+    <p class="section-label">The Why</p>
+    <h2>Benefits of camelCase CSS</h2>
+    <ul class="feature-list">
+      <li><strong>Consistency with JavaScript:</strong> React, Vue, and vanilla JS all use camelCase for inline styles — now your stylesheets match.</li>
+      <li><strong>Less cognitive friction:</strong> No more switching between hyphens and camelCase when moving between JS and CSS.</li>
+      <li><strong>IDE autocomplete:</strong> Many editors provide better autocomplete for camelCase tokens after the extension loads.</li>
+      <li><strong>Team alignment:</strong> Frontend teams already familiar with JS conventions adopt CSS faster.</li>
+      <li><strong>No build tools:</strong> FSCSS works at runtime or compile-time — zero config overhead.</li>
+    </ul>
+    <div class="pull-quote">
+      <p>camelCase CSS isn't just about aesthetics — it's about reducing the mental tax of switching between languages.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 7: Troubleshooting -->
+  <section class="section">
+    <p class="section-label">Troubleshooting</p>
+    <h2>Common Questions</h2>
+    <div class="prose">
+      <p><strong>Q: Does camelCase work with CSS variables?</strong><br>Yes. <code>var(--my-color)</code> works exactly as expected. The extension only transforms property names, not values.</p>
+      <p><strong>Q: Can I mix camelCase and standard CSS?</strong><br>Absolutely. The extension adds new valid tokens without removing existing CSS syntax.</p>
+      <p><strong>Q: What about vendor prefixes?</strong><br>Standard prefixes work: <code>WebkitBackdropFilter</code> maps to <code>-webkit-backdrop-filter</code>.</p>
+      <p><strong>Q: Is there a performance cost?</strong><br>The transformation happens once at compile/load time. Runtime performance is identical to standard CSS.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 8: Next Steps -->
+  <section class="section">
+    <p class="section-label">Next Steps</p>
+    <h2>Explore More FSCSS Extensions</h2>
+    <div class="prose">
+      <p>camelCase is just one of many extensions. Check out snake_case for Pythonic naming, counterx for animated counters, or circle-progress for UI components.</p>
+    </div>
+    <div class="project-grid" style="margin-top: 1.5rem;">
+      <div class="project-card">
+        <div class="project-meta"> naming</div>
+        <h3>snake_case Mappings</h3>
+        <p>Python-style property names: border_radius, font_weight.</p>
+        <a href="/how_to_use_snakecase_fscss" class="project-link">Read guide →</a>
+      </div>
+      <div class="project-card">
+        <div class="project-meta"> animation</div>
+        <h3>counterx.fscss</h3>
+        <p>Percentage counter with auto-generated keyframes.</p>
+        <a href="https://github.com/Figsh/counterx.fscss" class="project-link" target="_blank">View on GitHub →</a>
+      </div>
+      <div class="project-card">
+        <div class="project-meta"> UI</div>
+        <h3>circle-progress.fscss</h3>
+        <p>Animated circular progress component.</p>
+        <a href="https://github.com/Figsh/Circle-progress.fscss" class="project-link" target="_blank">View on GitHub →</a>
+      </div>
+    </div>
+    <div class="cta-group" style="margin-top: 2rem;">
+      <a href="/extensions" class="btn">📦 Explore All Extensions</a>
+      <a href="https://www.npmjs.com/package/fscss" class="btn btn-outline" target="_blank">📦 Install FSCSS</a>
+      <a href="https://github.com/fscss-ttr/FSCSS" class="btn btn-outline" target="_blank">⭐ GitHub</a>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul class="footer-links">
+          <li><a href="/projects">Projects</a></li>
+          <li><a href="/extensions">Extensions</a></li>
+          <li><a href="https://www.npmjs.com/package/fscss" target="_blank">NPM Package</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Community</h4>
+        <ul class="footer-links">
+          <li><a href="https://github.com/Figsh/xfscss/issues" target="_blank">GitHub Issues</a></li>
+          <li><a href="https://github.com/fscss-ttr/FSCSS/discussions" target="_blank">Discussions</a></li>
+          <li><a href="https://dev.to/fscss" target="_blank">dev.to</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul class="footer-links">
+          <li><a href="https://fscss.devtem.org/compiler" target="_blank">Playground</a></li>
+          <li><a href="https://github.com/fscss-ttr/FSCSS/blob/main/CONTRIBUTING.md" target="_blank">Contributing</a></li>
+          <li><a href="https://github.com/Figsh/xfscss/blob/main/LICENSE" target="_blank">MIT License</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Built with</h4>
+        <div class="footer-social">
+          <a href="https://github.com/fscss-ttr" target="_blank">GitHub Org</a>
+          <a href="https://dev.to/fscss" target="_blank">Blog</a>
+        </div>
+        <div style="margin-top: 16px; font-family: 'DM Sans', sans-serif; font-size: 0.75rem; color: var(--muted);">
+          FSCSS · Figured Shorthand CSS
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <p>2026 © FSCSS Project — Open source under MIT License. <br>Write CSS your way.</p>
+      <p style="margin-top: 8px;"><a href="https://github.com/Figsh/xfscss">github.com/Figsh/xfscss</a> — <a href="https://www.npmjs.com/package/fscss">npm i fscss</a></p>
+    </div>
+  </div>
+</footer>
+<script src="/assets/scripts/general.js"></script>
+</body>
+</html>
