@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  
+  <!-- Canonical -->
+  <link rel="canonical" href="https://figsh.devtem.org/404">
+  <link rel="icon" href="/fscss.png">
+  <!-- Title -->
+  <title>404 — Page Not Found | FSCSS</title>
+  
+  <!-- Primary SEO -->
+  <meta name="description" content="The page you're looking for doesn't exist. Explore FSCSS guides, extensions, and documentation to find what you need.">
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#111827">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="404 — Page Not Found | FSCSS">
+  <meta property="og:description" content="The page you're looking for doesn't exist. Explore FSCSS guides and extensions.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://figsh.devtem.org/404">
+  <meta property="og:image" content="https://fscss.devtem.org/fscss.png">
+  <meta property="og:site_name" content="FSCSS">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="404 — Page Not Found">
+  <meta name="twitter:description" content="The page you're looking for doesn't exist. Explore FSCSS guides and extensions.">
+  <meta name="twitter:image" content="https://fscss.devtem.org/fscss.png">
+  
+  <!-- Fonts & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Serif+Text:ital@0;1&family=JetBrains+Mono:wght@400;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles/general.css">
+  <style>
+    /* 404 specific enhancements */
+    .error-code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8rem;
+      font-weight: 700;
+      line-height: 1;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin: 1rem 0;
+      letter-spacing: -0.03em;
+    }
+    @media (min-width: 768px) {
+      .error-code {
+        font-size: 12rem;
+      }
+    }
+    .glowing-orb {
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle at 30% 30%, rgba(59,130,246,0.3), rgba(139,92,246,0.1));
+      border-radius: 50%;
+      position: absolute;
+      top: 10%;
+      right: -10%;
+      z-index: -1;
+      filter: blur(60px);
+    }
+    .glowing-orb-left {
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle at 70% 70%, rgba(236,72,153,0.25), rgba(59,130,246,0.05));
+      border-radius: 50%;
+      position: absolute;
+      bottom: 5%;
+      left: -15%;
+      z-index: -1;
+      filter: blur(70px);
+    }
+    .suggestion-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+    .suggestion-card {
+      background: var(--card-bg, #ffffff);
+      border: 1px solid var(--border-light, #eef2f6);
+      border-radius: 20px;
+      padding: 1.25rem;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: block;
+    }
+    .suggestion-card:hover {
+      transform: translateY(-4px);
+      border-color: #3b82f6;
+      box-shadow: 0 12px 24px -12px rgba(0,0,0,0.12);
+    }
+    .suggestion-card h3 {
+      font-family: 'DM Serif Text', serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary, #0f172a);
+    }
+    .suggestion-card p {
+      font-size: 0.875rem;
+      color: var(--muted, #64748b);
+      margin: 0;
+    }
+    .suggestion-card .arrow {
+      margin-top: 0.75rem;
+      font-size: 0.875rem;
+      color: #3b82f6;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container" style="position: relative; overflow-x: hidden;">
+  <!-- Decorative glowing orbs (404 charm) -->
+  <div class="glowing-orb"></div>
+  <div class="glowing-orb-left"></div>
+  
+  <!-- MASTHEAD (consistent with main site) -->
+  <header class="masthead">
+    <span class="masthead-label">FSCSS</span>
+    <a href="/projects"><span class="masthead-series">Explore Series</span></a>
+  </header>
+
+  <!-- 404 HERO SECTION -->
+  <section class="hero" style="text-align: center; padding: 3rem 1rem 2rem;">
+    <p class="hero-eyebrow" style="color: #3b82f6;">Error 404</p>
+    <div class="error-code">404</div>
+    <h1 style="font-size: 2rem; margin-top: 0;">Page Not Found</h1>
+    <div class="hero-meta" style="justify-content: center;">
+      <span class="tag">#lost</span>
+      <span class="tag">#explore</span>
+      <span class="tag">#fscss</span>
+    </div>
+  </section>
+
+  <!-- VIGNETTE / MESSAGE -->
+  <div class="vignette" style="text-align: center;">
+    <p style="font-size:1.1rem; line-height:1.7;">The page you're looking for doesn't exist — or maybe it's hiding behind a custom syntax you haven't defined yet.</p>
+    <p style="margin-top: 0.75rem; font-size:1rem; color: var(--muted);">Don't worry. FSCSS lets you define your own paths. Let's get you back on track.</p>
+  </div>
+
+  <!-- SUGGESTED DESTINATIONS (key pages) -->
+  <section class="section">
+    <p class="section-label">Navigate</p>
+    <h2 style="text-align: center;">Where would you like to go?</h2>
+    <div class="suggestion-grid">
+      <a href="/" class="suggestion-card">
+        <h3>Home</h3>
+        <p>Return to the FSCSS landing page — discover the vision behind custom CSS syntax.</p>
+        <span class="arrow">→ Explore</span>
+      </a>
+      <a href="/projects" class="suggestion-card">
+        <h3>Project Series</h3>
+        <p>Deep dives into camelCase, snake_case, @define guides, and workflow transformations.</p>
+        <span class="arrow">→ Read series</span>
+      </a>
+      <a href="/extensions" class="suggestion-card">
+        <h3>Extensions Hub</h3>
+        <p>Community modules: counterx, circle-progress, camelCase, snake_case, and more.</p>
+        <span class="arrow">→ Browse extensions</span>
+      </a>
+      <a href="/fscss_design_your_own_css_syntax" class="suggestion-card">
+        <h3>Design Your Own CSS</h3>
+        <p>The manifesto: how str() and custom syntax reshape frontend styling.</p>
+        <span class="arrow">→ Read article</span>
+      </a>
+      <a href="/supercharge_css_workflow_fscss" class="suggestion-card">
+        <h3>Supercharge Workflow</h3>
+        <p>From zero to fluent in 20 minutes — eliminate repetition, build faster.</p>
+        <span class="arrow">→ Start guide</span>
+      </a>
+      <a href="/fscss_define_full_guide" class="suggestion-card">
+        <h3>@define Full Guide</h3>
+        <p>Master parameterized style definitions, block defines, and component systems.</p>
+        <span class="arrow">→ Learn @define</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- QUICK SEARCH / HELP SECTION -->
+  <section class="section">
+    <div class="pull-quote" style="text-align: center;">
+      <p><strong>Pro tip:</strong> FSCSS lets you define custom routes in your stylesheets — but not in your URLs (yet). Try one of the links above or use the navigation footer.</p>
+    </div>
+  </section>
+
+  <!-- ADDITIONAL RESOURCES: popular extensions -->
+  <section class="section">
+    <p class="section-label">Popular Extensions</p>
+    <h2 style="text-align: center;">Community favorites</h2>
+    <div class="compare" style="margin-top: 1rem;">
+      <div class="compare-col">
+        <p class="compare-label">camelCase Mappings</p>
+        <div class="code-block" data-lang="fscss">
+          <code><span class="fn">@import</span>((*) <span class="fn">from</span> camelCase)<br>
+<span class="selector">.card</span> { <span class="property">backgroundColor</span>: #111; }</code>
+        </div>
+        <div class="prose"><p>Write CSS with JavaScript-style properties.</p></div>
+        <a href="/how_to_use_camelcase_fscss" style="margin-top: 0.5rem; display: inline-block;">Learn more →</a>
+      </div>
+      <div class="compare-col">
+        <p class="compare-label new">snake_case Mappings</p>
+        <div class="code-block" data-lang="fscss">
+          <code><span class="fn">@import</span>((*) <span class="fn">from</span> snake_case)<br>
+<span class="selector">.form</span> { <span class="property">border_radius</span>: 8px; }</code>
+        </div>
+        <div class="prose"><p>Pythonic naming for CSS properties.</p></div>
+        <a href="/how_to_use_snakecase_fscss" style="margin-top: 0.5rem; display: inline-block;">Learn more →</a>
+      </div>
+      <div class="compare-col">
+        <p class="compare-label">counterx.fscss</p>
+        <div class="code-block" data-lang="fscss">
+          <code><span class="fn">@import</span>(<span class="fn">exec</span>(_init counterx))<br>
+<span class="at">@keyframes</span> count { <span class="at">@counter-init</span>() }</code>
+        </div>
+        <div class="prose"><p>Auto-generated percentage counters.</p></div>
+        <a href="https://github.com/Figsh/counterx.fscss" target="_blank" style="margin-top: 0.5rem; display: inline-block;">GitHub →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEARCH / DOCS CTA -->
+  <section class="section">
+    <div class="cta-group" style="margin-top: 1rem;">
+      <a href="https://fscss.devtem.org" class="btn" target="_blank" rel="noopener noreferrer">📘 Official Documentation</a>
+      <a href="https://github.com/fscss-ttr/FSCSS" class="btn btn-outline" target="_blank" rel="noopener noreferrer">⭐ GitHub Repository</a>
+      <a href="https://www.npmjs.com/package/fscss" class="btn btn-outline" target="_blank" rel="noopener noreferrer">📦 npm Package</a>
+    </div>
+  </section>
+</div>
+
+<!-- ENHANCED FOOTER (same as main site) -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul class="footer-links">
+          <li><a href="/projects">Projects</a></li>
+          <li><a href="/extensions">Extensions</a></li>
+          <li><a href="https://www.npmjs.com/package/fscss" target="_blank">NPM Package</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Community</h4>
+        <ul class="footer-links">
+          <li><a href="https://github.com/Figsh/xfscss/issues" target="_blank">GitHub Issues</a></li>
+          <li><a href="https://github.com/fscss-ttr/FSCSS/discussions" target="_blank">Discussions</a></li>
+          <li><a href="https://dev.to/fscss" target="_blank">dev.to</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul class="footer-links">
+          <li><a href="https://fscss.devtem.org/compiler" target="_blank">Playground</a></li>
+          <li><a href="https://github.com/fscss-ttr/FSCSS/blob/main/CONTRIBUTING.md" target="_blank">Contributing</a></li>
+          <li><a href="https://github.com/Figsh/xfscss/blob/main/LICENSE" target="_blank">MIT License</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Built with</h4>
+        <div class="footer-social">
+          <a href="https://github.com/fscss-ttr" target="_blank">GitHub Org</a>
+          <a href="https://dev.to/fscss" target="_blank">Blog</a>
+        </div>
+        <div style="margin-top: 16px; font-family: 'DM Sans', sans-serif; font-size: 0.75rem; color: var(--muted);">
+          FSCSS · Figured Shorthand CSS
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <p>2026 © FSCSS Project — Open source under MIT License. <br>Even 404 pages can be designed your way.</p>
+      <p style="margin-top: 8px;"><a href="https://github.com/Figsh/xfscss">github.com/Figsh/xfscss</a> — <a href="https://www.npmjs.com/package/fscss">npm i fscss</a></p>
+    </div>
+  </div>
+</footer>
+<script src="/assets/scripts/general.js"></script>
+</body>
+</html>
