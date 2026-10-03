@@ -1,1 +1,1 @@
-G by Figsh 
+Figsh
